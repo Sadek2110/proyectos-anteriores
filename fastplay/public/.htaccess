@@ -1,0 +1,27 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # No reescribir si el archivo o directorio existe (assets físicos)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Resto de rutas → front controller
+    RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+</IfModule>
+
+# Bloquear acceso directo a archivos sensibles
+<FilesMatch "\.(env|md|log|sqlite|sqlite-journal|ini|sql|json|lock|yml|yaml|dockerfile)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+ServerSignature Off
+
+# Las cabeceras de seguridad (X-Frame-Options, CSP, etc.) se envían desde
+# config/config.php (security_headers()) para no duplicar y mantener un único origen.

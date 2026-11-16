@@ -1,0 +1,32 @@
+# --- FastPlay ---
+storage/*.sqlite
+storage/*.sqlite-journal
+storage/*.log
+storage/sessions/
+
+# Dependencias y cachés de test
+vendor/
+.phpunit.cache/
+
+# Uploads del usuario (no los assets de marca controlados)
+uploads/*
+!uploads/.htaccess
+
+# Runtime local y assets generados pesados
+php/
+public/frames/
+public/frames-webp/
+
+# Editores / IDEs
+.idea/
+.vscode/
+.agent/
+.claude/
+*.bak
+*.swp
+*~
+
+# Sistema
+Thumbs.db
+.DS_Store
+desktop.ini
