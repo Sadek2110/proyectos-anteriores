@@ -1,0 +1,18 @@
+# Reescritura para Apache: cualquier URL que no apunte a un archivo o
+# directorio real se envía al front controller.
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^ index.php [QSA,L]
+</IfModule>
+
+# Endurecimiento mínimo: ocultar la firma del servidor.
+ServerSignature Off
+
+# Bloquear archivos sensibles si se subiesen por error a public/.
+<FilesMatch "\.(sqlite|sql|md|log|ini)$">
+    Require all denied
+</FilesMatch>

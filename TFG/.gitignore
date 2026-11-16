@@ -1,0 +1,15 @@
+# Base de datos local generada
+/base_datos/fastplay.sqlite
+/base_datos/fastplay.sqlite-journal
+
+# Sesiones PHP (se crean en tiempo de ejecución)
+/almacenamiento/sesiones/*
+!/almacenamiento/sesiones/.gitkeep
+
+# Editores y sistema
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*~
