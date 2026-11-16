@@ -1,0 +1,14 @@
+[project]
+name = "ai-news-desktop-widget"
+version = "1.0.0"
+description = "Widget de escritorio redimensionable en Python (PySide6) con carrusel de noticias de IA"
+requires-python = ">=3.11"
+dependencies = [
+    "PySide6>=6.6.0",
+    "requests>=2.31.0",
+    "feedparser>=6.0.10",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

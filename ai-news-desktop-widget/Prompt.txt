@@ -1,0 +1,29 @@
+La idea es crear un widget para tenerlo en el desktop y que me sirva para ver las noticias mas recientes del mundo de la IA:
+
+Objetivos:
+
+- Tiene que ser un widget de escritorio que se pueda reajustar.
+- Tiene que obtener informacion nueva de IA, ya sea mediante una API de noticias ya existente o crear nosotros una.
+- Tiene que estar hecha en Python.
+- Tiene que mostrar las noticias en forma de carrusel.
+- Las noticias tienen que actualizarse cada 12h o cada que salga algo nuevo.
+
+Recursos:
+
+- Tengo claude code pro y google one pro.
+- Tengo un vps y dominio -> panel.dksaa.com.
+- Tengo python y node instalados.
+
+Funcionamiento:
+
+- Primero revisa el entorno y si tiene todo lo necesario para empezar a trabajar.
+- Busca las mejores librerias y repos de github para hacer esto.
+- Busca si existe alguna API existente que sirva o si tenemos que crearla (ya sea con playwright o con n8n).
+- Crea primero los requisitos funcionales completos, todas las funciones que tiene que tener el proyecto.
+- AL tener las funciones definidas, programar en SDD en bucle hasta que sea totalmente funcional.
+
+IMPORTANTE -> Prepara siempre primero el entorno de trabajo del agente, todo lo que necesites perogunta primero al usuario y si dice que si procede con la instalacion.
+Crea el agent.md y prepara las skills antes de empezar.
+
+Claude esta conectado por mcp a n8n, easypanel y github asi que si hay que crear la API, crea una carpteta con las instrucciones para que haga todo el.
+

@@ -1,0 +1,128 @@
+{
+  "name": "AI News Widget Aggregator API (12h + Real-time)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "GET",
+        "path": "ai-news",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook-ai-news",
+      "name": "GET /webhook/ai-news",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 12
+            }
+          ]
+        }
+      },
+      "id": "schedule-12h",
+      "name": "Every 12 Hours Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [240, 500]
+    },
+    {
+      "parameters": {
+        "url": "https://hn.algolia.com/api/v1/search_by_date?tags=story&query=AI%20OR%20LLM%20OR%20OpenAI%20OR%20Anthropic%20OR%20Gemini&hitsPerPage=15",
+        "options": {}
+      },
+      "id": "fetch-hn-ai",
+      "name": "Fetch HackerNews AI",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [520, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://huggingface.co/api/daily_papers",
+        "options": {}
+      },
+      "id": "fetch-hf-papers",
+      "name": "Fetch HuggingFace Daily Papers",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [520, 500]
+    },
+    {
+      "parameters": {
+        "jsCode": "const items = [];\nfor (const item of $input.all()) {\n  const data = item.json;\n  if (Array.isArray(data.hits)) {\n    for (const hit of data.hits) {\n      if (!hit.title) continue;\n      items.push({\n        id: `hn-${hit.objectID}`,\n        title: hit.title,\n        summary: hit.story_text ? hit.story_text.replace(/<[^>]*>/g, '').slice(0, 280) : `Debate destacado en Hacker News (${hit.points || 0} puntos, ${hit.num_comments || 0} comentarios).`,\n        url: hit.url || `https://news.ycombinator.com/item?id=${hit.objectID}`,\n        source: 'Hacker News AI',\n        category: 'Industry',\n        published_at: hit.created_at\n      });\n    }\n  }\n}\nreturn [{ json: { status: 'ok', updated_at: new Date().toISOString(), articles: items } }];"
+      },
+      "id": "normalize-articles",
+      "name": "Normalize & Format JSON",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [800, 380]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "respond-webhook",
+      "name": "Respond to Widget",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [1060, 380]
+    }
+  ],
+  "connections": {
+    "GET /webhook/ai-news": {
+      "main": [
+        [
+          {
+            "node": "Fetch HackerNews AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Every 12 Hours Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch HackerNews AI",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch HackerNews AI": {
+      "main": [
+        [
+          {
+            "node": "Normalize & Format JSON",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Normalize & Format JSON": {
+      "main": [
+        [
+          {
+            "node": "Respond to Widget",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

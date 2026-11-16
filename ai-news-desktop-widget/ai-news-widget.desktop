@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=AI Pulse — Widget de Noticias IA
+Comment=Widget de escritorio redimensionable con carrusel de noticias de Inteligencia Artificial
+Exec=/home/sadek/Escritorio/Python/proyectos/Widget-Noticias/run_widget.sh
+Path=/home/sadek/Escritorio/Python/proyectos/Widget-Noticias
+Icon=applications-science
+Terminal=false
+Categories=Utility;News;
+StartupNotify=false
