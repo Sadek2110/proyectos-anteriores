@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baumans&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inclusive+Sans:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Trocchi&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/119bd4becd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h1>El mundo es nuestro: un año de viajes</h1>
+
+    <main>
+        <section class="caja c1">
+            <div class="subcaja">
+                <i class="fa-solid fa-seedling"></i>
+                <div class="hidden">
+                    <h6>Primavera</h6>
+                    <p>Los cerezos en flor de Japón son inolvidables</p>
+                </div>
+            </div>
+        </section>
+        <section class="caja c2">
+            <div class="subcaja">
+                <i class="fa-solid fa-sun"></i>
+                <div class="hidden">
+                    <h6>Verano</h6>
+                    <p>En Grecia, las islas Cícladas son un paraíso</p>
+                </div>
+            </div>
+        </section>
+        <section class="caja c3">
+            <div class="subcaja">
+                <i class="fa-solid fa-leaf"></i>
+                <div class="hidden">
+                    <h6>Otoño</h6>
+                    <p>Los bosques de Canadá explotan en mil colores</p>
+                </div>
+            </div>
+        </section>
+        <section class="caja c4">
+            <div class="subcaja">
+                <i class="fa-solid fa-snowflake"></i>
+                <div class="hidden">
+                    <h6>Invierno</h6>
+                    <p>Las auroras boreales de Islandia te enamorarán</p>
+                </div>
+            </div>
+        </section>
+        <section class="caja2 c5">
+            <div class="subcaja">
+                <i class="fa-solid fa-earth-europe"></i>
+                <div class="hidden">
+                    <h6>Todo el año</h6>
+                    <p>India: cultura milenaria y lugares asombrosos
+
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+
+        let sections = document.querySelectorAll('main section')
+
+        sections.forEach(section => {
+            section.addEventListener('click', e => {
+                if(section.classList.contains('caja2')){
+                    section.classList.remove('caja2')
+                    return
+                }
+
+                sections.forEach(s => s.classList.remove('caja2'))
+
+                section.classList.add('caja2')
+            })
+        });
+
+    </script>
+
+</body>
+</html>

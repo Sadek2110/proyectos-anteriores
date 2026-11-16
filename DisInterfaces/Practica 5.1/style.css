@@ -1,0 +1,67 @@
+*{
+    margin: 0;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    color: #F5F5F5;
+
+    & header{
+        width: 100%;
+        background-color:  #9A4770;
+        font-family: 'Inclusive Sans';
+        position: absolute;
+        top: 0;
+        bottom: 93vh;
+
+        & ul{
+            list-style: none;
+
+            & li{
+                display: inline-block;
+                font-size: 1.3rem;
+                text-align: center;
+                padding: 22px;
+
+                
+                &:hover{
+                    background-color: #381A29;
+                    cursor: pointer;
+
+                }
+                
+            }
+        }
+        
+        & .hidden{
+            position: absolute;
+            top: 200px;
+        }
+    }
+    
+    & main{
+        background: url('img/fondo.png') no-repeat center/cover;
+        font-family: 'Baumans';
+        text-align: center;
+        position: absolute;
+        top: 7vh;
+        bottom: 0;
+        
+
+        & h1{
+            position: relative;
+            font-size: 3rem;
+            top: 30%;
+        }
+
+        & p{
+            width: 90%;
+            position: relative;
+            top: 40%;
+            margin: 0 auto;
+            font-size: 2rem;
+        }
+    }
+}

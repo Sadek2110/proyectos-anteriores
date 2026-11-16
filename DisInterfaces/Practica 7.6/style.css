@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    background: url(img/nebula.png) no-repeat center center/cover;
+    text-align: center;
+    color: #e4e1e1;
+    font-family: 'PokemonSolid';
+    letter-spacing: 2px;
+
+    h1{
+        font-size: 3.5rem;
+        margin: 2vh 0;
+    }
+
+    .cartas{
+        width: 80%;
+        margin: 4vh 10%;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-auto-flow: row;
+        grid-auto-rows: 1fr;
+        gap: 1.2rem;
+        
+        /* Atributos generales de las cartas */
+        div{
+            border-radius: 12px;
+            position: relative;
+            transition: all 0.3s ease-in;
+            
+            span{
+                width: 80%;
+                position: absolute;
+                bottom: 10px;
+                right: 10%;
+                z-index: 10;
+                font-size: clamp(1.1rem, 3vw + 1rem, 1.3rem);
+                text-shadow: 3px 3px 5px #db3c99;
+                padding: 8px;
+                background: linear-gradient(0deg,rgba(128, 14, 143, 1) 23%, rgba(207, 146, 17, 1) 86%);
+                border-radius: 12px;
+                opacity: 0;
+                overflow: hidden;
+                transition: all .4s ease-in-out;
+                animation: brillo 1s ease-in-out infinite alternate;
+                
+                &:before{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: #db3c99;
+                    transition: all 1s ease-in-out;
+                }
+            }
+            
+            img{
+                width: 100%;
+                height: 100%;
+                border-radius: 12px;
+                
+            }
+
+            .secundaria{
+                display: none;
+            }
+
+            p{
+                display: none;
+            }
+            
+            &:hover{
+                span{
+                    opacity: 1;
+                    
+                    &:before{
+                        transform: translateX(100%);
+                    }
+                }
+            }
+        }
+
+        
+        
+        /* Color de fondo */
+        .azul{
+            background: radial-gradient(circle,rgba(29, 182, 253, 1) 23%, rgba(6, 103, 194, 1) 81%);
+        }
+        .lila{
+            background: radial-gradient(circle,rgba(196, 100, 237, 1) 23%, rgba(90, 15, 122, 1) 81%);
+        }
+        
+        /* Posicionamiento de las cartas */
+        .c1{
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+        .c3{
+            grid-column: span 2;
+        }
+        .c4{
+            grid-row: span 2;
+            grid-column: span 2;
+        }
+        .c7{
+            grid-area: 3/5/4/6;
+        }
+        .c8{
+            grid-area: 4/3/5/4;
+        }
+        .c9{
+            grid-area: 4/4/6/6;
+        }
+        .c10{
+            grid-area: 4/6/5/7;
+        }
+        .c11{
+            grid-area: 5/1/6/2;
+        }
+        .c12{
+            grid-area: 5/2/6/4;
+        }
+        
+        /* Estilos de la carta por detras */
+        .vuelta{
+            transition: all 0.3s ease-in;
+            background: url(img/pokeball.png) no-repeat center center/cover;
+            transform: rotateY(180deg);
+            animation: none;
+
+            p{
+                width: 80%;
+                display: block;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotateY(180deg);
+                background: #e0dededd;
+                border-radius: 12px;
+                padding: 1.3rem;
+                font-size: 7px;
+                color: black;
+                font-family: 'PokemonClassic';
+                
+            }
+
+            img{
+                opacity: 0;
+            }
+
+            span{
+                display: none;
+            }
+        }
+    
+        .vuelta.largo{
+            background: url(img/pokeball2.png) no-repeat center center/cover;
+        }
+    }
+
+}
+
+/* Fuentes de la pagina */
+@font-face {
+    font-family: 'PokemonClassic'; /* El nombre que tú quieras darle */
+    src: url('./fonts/Pokemon Classic.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'PokemonSolid'; /* El nombre que tú quieras darle */
+    src: url('./fonts/Pokemon Solid.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* La animación de brillo */
+@keyframes brillo{
+    0%{
+        box-shadow: 5px 5px 15px #e4e1e1, -5px -5px 15px #e4e1e1;
+    }
+
+    100%{
+        box-shadow: 10px 10px 20px #e4e1e1, -10px -10px -20px #e4e1e1;
+    }
+}
+
+/* Las media queries */
+@media (max-width: 1080px) {
+    body .cartas {
+        /* Cambiamos a una sola columna */
+        grid-template-columns: 1fr;
+        width: 70%;
+        margin: 2vh auto;
+    }
+
+    /* Resetear todas las posiciones específicas de las cartas */
+    body .cartas div {
+        grid-area: auto !important;
+        grid-row: span 1 !important;
+        grid-column: span 1 !important;
+    }
+
+    body .cartas div span{
+        opacity: 1;
+        animation: none;
+    }
+
+    body .cartas div span::before{
+        display: none;
+    }
+
+    body .cartas .largo .principal{
+        display: none;
+
+    }
+
+    body .cartas .largo .secundaria{
+        display: block;
+        background: radial-gradient(circle,rgba(100, 21, 153, 1) 4%, rgba(42, 130, 10, 1) 33%, rgb(221, 248, 13) 96%);
+    }
+}
+
+@media (max-width: 768px) {
+    body .cartas {
+        /* Cambiamos a una sola columna */
+        grid-template-columns: 1fr;
+        width: 90%;
+        margin: 2vh 5%;
+    }
+
+    /* Resetear todas las posiciones específicas de las cartas */
+    body .cartas div {
+        grid-area: auto !important;
+        grid-row: span 1 !important;
+        grid-column: span 1 !important;
+        background: radial-gradient(circle,rgb(28, 151, 3) 6%, rgba(255, 251, 8, 1) 39%, rgb(218, 16, 201) 93%) !important;
+    }
+
+    body .cartas .c1, body .cartas .c4, body .cartas .c9{
+        background: radial-gradient(circle,rgba(242, 59, 245, 1) 11%, rgba(209, 219, 59, 1) 39%, rgba(209, 219, 59, 1) 69%, rgba(42, 130, 10, 1) 92%) !important;
+    }
+
+    body .cartas div span{
+        opacity: 1;
+        animation: none;
+    }
+}

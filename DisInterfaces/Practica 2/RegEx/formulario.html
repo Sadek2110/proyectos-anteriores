@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Por favor introduce tus datos</h1>
+
+    <form action="script.php" method="post">
+      <fieldset>
+        <legend>Informacion Personal</legend>
+
+        <fieldset>
+          <legend>Identidad de genero</legend>
+          <label for="masculino"
+            ><input type="radio" name="genero" id="masculino" />Masculino</label
+          >
+          <label for="femenino"
+            ><input type="radio" name="genero" id="femenino" />Femenino</label
+          >
+          <label for="no-binario"
+            ><input type="radio" name="genero" id="no-binario" />No
+            Binario</label
+          >
+          <label for="otro"
+            ><input type="radio" name="genero" id="otro" />Otro</label
+          >
+          <label for="noResponder"
+            ><input type="radio" name="genero" id="noResponder" checked />No
+            Responder</label
+          >
+        </fieldset>
+        <br />
+
+        <label for="nombre">Nombre: </label>
+        <input
+          type="text"
+          id="nombre"
+          name="nombre"
+          required
+          autofocus
+          pattern="[a-zA-Zñáéíóú\-\s]+"
+        />
+
+        <label for="apellido">Apellido: </label>
+        <input
+          type="text"
+          id="apellido"
+          name="apellido"
+          required
+          size="50"
+          pattern="[a-zA-Zñáéíóú\-\s]+"
+        /><br /><br />
+
+        <label for="f_nac">Fecha Nacimiento: </label>
+        <input type="date" id="f_nac" name="f_nac" required /><br /><br />
+
+        <label for="ciudad">Ciudad: </label>
+        <input
+          type="text"
+          id="ciudad"
+          name="ciudad"
+          size="25"
+          pattern="[a-zA-Zñáéíóú\-\s]+"
+        />
+
+        <label for="region">Region: </label>
+        <select name="region" id="region">
+          <option value="" hidden>--Elige una región--</option>
+          <optgroup label="Norte">
+            <option value="galicia">Galicia</option>
+            <option value="asturias">Asturias</option>
+            <option value="cantabria">Cantabria</option>
+            <option value="rioja">Rioja</option>
+            <option value="pais-vasco">País Vasco</option>
+            <option value="navarra">Navarra</option>
+            <option value="aragon">Aragón</option>
+            <option value="cataluna">Cataluña</option>
+          </optgroup>
+
+          <optgroup label="Centro">
+            <option value="madrid">Madrid</option>
+            <option value="castilla-la-mancha">Castilla La Mancha</option>
+            <option value="castilla-leon">Castilla y León</option>
+            <option value="comunidad-valenciana">Comunidad Valenciana</option>
+          </optgroup>
+
+          <optgroup label="Sur">
+            <option value="andalucia">Andalucía</option>
+            <option value="extremadura">Extremadura</option>
+            <option value="murcia">Murcia</option>
+            <option value="devon">Devon</option>
+            <option value="cornwall">Cornwall</option>
+          </optgroup>
+
+          <optgroup label="Extrapeninsular">
+            <option value="ceuta">Ceuta</option>
+            <option value="melilla">Melilla</option>
+            <option value="islas-baleares">Islas Baleares</option>
+            <option value="islas-canarias">Islas Canarias</option>
+          </optgroup>
+        </select>
+
+        <label for="c_postal">Codigo Postal: </label>
+        <input
+          type="text"
+          id="c_postal"
+          name="c_postal"
+          size="10"
+          pattern="(?!.*(.).*\1)[1-9]{5}"
+        />
+
+        <label for="c_reg">Codigo Regional: </label>
+        <input
+          type="text"
+          id="c_reg"
+          name="c_reg"
+          size="10"
+          pattern="[A-Z]{1,3}[a-z0-9]{1,3}[A-Z]*[NSW]"
+          title="El codigo regional debe empezar con letras mayusculas y terminar con una o dos myusculas, siendo una de ellas N, S o W"
+        />
+      </fieldset>
+
+      <fieldset>
+        <legend>Informacion de suscripcion</legend>
+        <label for="t_suscripcion">Tipo de suscripcion: </label>
+        <input
+          type="text"
+          name="t_suscripcion"
+          id="t_suscripcion"
+          required
+          size="25"
+          list="opciones-suscripcion"
+        />
+
+        <datalist id="opciones-suscripcion">
+          <option value="Suscripción Diaria"></option>
+          <option value="Suscripción Semanal"></option>
+          <option value="Suscripción Quincenal"></option>
+          <option value="Suscripción Mensual"></option>
+          <option value="Suscripción Anual"></option>
+          <option value="Suscripción Ilimitada"></option>
+        </datalist>
+
+        <label for="c_suscripcion">Codigo de suscripcion: </label>
+        <input
+          type="text"
+          name="c_suscripcion"
+          id="c_suscripcion"
+          size="10"
+          pattern="\w{2,}\d[05]"
+        /><br /><br />
+
+        <fieldset>
+          <legend>Intereses Personales</legend>
+          <label for="ciencia"
+            ><input
+              type="checkbox"
+              name="intereses"
+              id="ciencia"
+            />Ciencia</label
+          >
+          <label for="artes_plasticas"
+            ><input
+              type="checkbox"
+              name="intereses"
+              id="artes_plasticas"
+            />Artes Plásticas</label
+          >
+          <label for="literatura"
+            ><input
+              type="checkbox"
+              name="intereses"
+              id="literatura"
+            />Literatura</label
+          >
+          <label for="tec_disp"
+            ><input type="checkbox" name="intereses" id="tec_disp" />Tecnología
+            y dispositivos</label
+          >
+          <label for="des_personal"
+            ><input
+              type="checkbox"
+              name="intereses"
+              id="des_personal"
+            />Desarrollo Personal</label
+          >
+        </fieldset>
+        <br />
+
+        <label for="nombre_usuario">Nombre de usuario: </label>
+        <input
+          type="text"
+          name="nombre_usuario"
+          id="nombre_usuario"
+          placeholder="Usuario valido"
+          pattern="(?= .*{4,16})[A-Z0-9_]([A-Z0-9._]*[A-Z0-9_])?"
+        />
+
+        <label for="contrasena">Contraseña: </label>
+        <input
+          type="password"
+          name="contrasena"
+          id="contrasena"
+          required
+          placeholder="password"
+          pattern="(?= .*{8,})(?!.*(\d)\d*\1)(\w|\w\W*\w)"
+        /><br /><br />
+      </fieldset>
+
+      <fieldset>
+        <legend>Informacion de cobro</legend>
+        <label for="t_tarjeta">Tipo de tarjeta: </label>
+        <select name="t_tarjeta" id="t_tarjeta" required>
+          <option value="" hidden>--Selecciona una--</option>
+          <option value="visa">Visa</option>
+          <option value="mastercard">MasterCard</option>
+          <option value="maestro">Maestro</option>
+        </select>
+
+        <label for="n_tarjeta">Número de tarjeta: </label>
+        <input
+          type="text"
+          name="n_tarjeta"
+          id="n_tarjeta"
+          required
+          pattern="\d{16}|\d{4} \d{4} \d{4} \d{4}|\d{4}-\d{4}-\d{4}-\d{4}" 
+        /><br /><br />
+
+        <label for="descuento"
+          >Si dispones de un codigo de descuento, ingresalo aqui:
+        </label>
+        <input
+          type="text"
+          name="descuento"
+          id="descuento"
+          placeholder="code"
+          pattern="[A-Z]{3}(0[1-3]|1[023]|2[013]|3[012])"
+        /><br />
+      </fieldset>
+
+      <fieldset>
+        <legend>Feedback</legend>
+        <p>Nos encantaria oir tus sugerencias para mejorar nuestra página.</p>
+        <textarea
+          name="sugerencias"
+          id="sugerencias"
+          cols="50"
+          rows="5"
+        ></textarea
+        ><br />
+      </fieldset>
+
+      <input type="submit" value="Enviar formulario" />
+      <input type="reset" value="Borrar datos" />
+    </form>
+  </body>
+</html>

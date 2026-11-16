@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+    <h1>! Hazte con todos ¡</h1>
+    <h3>Haz click en las fotos para más información</h3>
+
+    <div class="cartas">
+      <div class="c1 lila">
+        <img src="img/zekrom.png" alt="" />
+        <span>Zekrom</span>
+        <p>
+          Zekrom es un Pokémon legendario de tipo dragón/eléctrico introducido
+          en la quinta generación. Zekrom está basado en el concepto del yin del
+          yin y yang del taoísmo. El hecho de que Zekrom sea mascota de Pokémon
+          Blanco, así como Reshiram de Pokémon Negro, hace referencia a que el
+          yin tiene un poco de yang y vice versa.
+        </p>
+      </div>
+      <div class="c2 azul">
+        <img src="img/aggron.png" alt="" />
+        <span>Aggron</span>
+        <p>
+          Aggron es un Pokémon de tipo acero/roca introducido en la tercera
+          generación.
+        </p>
+      </div>
+      <div class="c3 largo">
+        <img class="principal" src="img/sceptile.png" alt="" />
+        <img class="secundaria" src="img/sceptile-sq.png" alt="">
+        <span>Sceptile</span>
+        <p>
+          Sceptile es un Pokémon de tipo planta de la tercera generación. Es la
+          evolución de Grovyle y a partir de Pokémon Rubí Omega y Pokémon Zafiro
+          Alfa puede mega-evolucionar en Mega-Sceptile.
+        </p>
+      </div>
+      <div class="c4 lila">
+        <img src="img/zapdos.png" alt="" />
+        <span>Zapdos</span>
+        <p>
+          Zapdos es un Pokémon legendario de tipo eléctrico/volador introducido
+          en la primera generación. Pertenece al trío de aves legendarias. A
+          este legendario Pokémon se le suele ver surcando los cielos oscuros
+          que se generan durante las tormentas eléctricas, que muchas veces él
+          mismo provoca.
+        </p>
+      </div>
+      <div class="c5 azul">
+        <img src="img/infernape.png" alt="" />
+        <span>Infernape</span>
+        <p>
+          Infernape es un Pokémon de tipo fuego-lucha de la cuarta generación.
+        </p>
+      </div>
+      <div class="c6 azul">
+        <img src="img/jolteon.png" alt="" />
+        <span>Jolteon</span>
+        <p>
+          Jolteon es un Pokémon de tipo eléctrico introducido en la primera
+          generación.
+        </p>
+      </div>
+      <div class="c7 azul">
+        <img src="img/grimmsnarl.png" alt="" />
+        <span>Grimmsnarl</span>
+        <p>
+          Grimmsnarl es un Pokémon de tipo siniestro/hada introducido en la
+          octava generación.
+        </p>
+      </div>
+      <div class="c8 azul">
+        <img src="img/garchomp.png" alt="" />
+        <span>Garchomp</span>
+        <p>
+          Garchomp es un Pokémon de tipo dragón/tierra introducido en la cuarta
+          generación.
+        </p>
+      </div>
+      <div class="c9 lila">
+        <img src="img/yveltal.png" alt="" />
+        <span>Yveltal</span>
+        <p>
+          Yveltal es un Pokémon legendario de tipo siniestro/volador introducido
+          en la sexta generación. Es la mascota de Pokémon Y. Igual que Xerneas
+          y Zygarde, tiene en su cuerpo rasgos del organismo de los seres vivos.
+          En su caso, su cuerpo es de un color rojo que recuerda a la sangre. Su
+          cuello está rodeado por un fino plumaje gris.
+        </p>
+      </div>
+      <div class="c10 azul">
+        <img src="img/mimikyu.png" alt="" />
+        <span>Mimikyu</span>
+        <p>
+          Mimikyu es un Pokémon de tipo fantasma/hada introducido en la séptima
+          generación.
+        </p>
+      </div>
+      <div class="c11 azul">
+        <img src="img/dragonite.png" alt="" />
+        <span>Dragonite</span>
+        <p>
+          Dragonite es un Pokémon de tipo dragón/volador introducido en la
+          primera generación.
+        </p>
+      </div>
+      <div class="c12 largo">
+        <img class="principal" src="img/swampert.jpg" alt="" />
+        <img class="secundaria" src="img/swampert-sq.png" alt="">
+        <span>Swampert</span>
+        <p>
+          Swampert es un Pokémon de tipo agua/tierra introducido en la tercera
+          generación. Vive cerca del agua, construye sus nidos en la playa.
+          También se lo puede ver en pantanos y ríos.
+        </p>
+      </div>
+    </div>
+
+    <script>
+      $(".cartas div").click(function () {
+        $(this).toggleClass("vuelta");
+      });
+    </script>
+  </body>
+</html>
