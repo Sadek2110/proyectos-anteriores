@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="El martirio del Imam Husein ibn Ali en Karbala: narración completa, personajes, cronología, fuentes históricas y perspectivas teológicas.">
+<title>El Martirio del Imam Husein · Karbala, 61 H / 680 d.C.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ─────────────────────────────────────────────────────
+   TOKENS
+   ───────────────────────────────────────────────────── */
+:root {
+  --bg-deep: #0d0907;
+  --bg-base: #14100c;
+  --bg-elevated: #1c1612;
+  --bg-card: #221912;
+  --bg-card-hover: #2a1f17;
+  --border-subtle: #3a2820;
+  --border-strong: #5a3d2e;
+
+  --gold-primary: #c5a572;
+  --gold-bright: #d9b878;
+  --gold-deep: #8a6d3b;
+  --crimson: #8b1d1d;
+  --crimson-dim: #5a1414;
+  --green-husain: #3d5a4a;
+
+  --text-primary: #e8dccd;
+  --text-body: #d4c5b0;
+  --text-muted: #a89580;
+  --text-faint: #6e5d4d;
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Crimson Pro', 'Georgia', serif;
+  --font-arabic: 'Amiri', serif;
+  --font-ui: 'Inter', system-ui, sans-serif;
+
+  --max-content: 76ch;
+  --max-wide: 1180px;
+
+  --transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ─────────────────────────────────────────────────────
+   RESET & BASE
+   ───────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--text-body);
+  background: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse at top, rgba(139, 29, 29, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(197, 165, 114, 0.04) 0%, transparent 50%);
+  background-attachment: fixed;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection { background: var(--crimson); color: var(--text-primary); }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  line-height: 1.15;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+p { margin-bottom: 1.2em; }
+p:last-child { margin-bottom: 0; }
+
+a {
+  color: var(--gold-primary);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--transition), color var(--transition);
+}
+a:hover { color: var(--gold-bright); border-bottom-color: var(--gold-deep); }
+
+.arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.15em;
+  direction: rtl;
+  display: inline-block;
+}
+
+/* ─────────────────────────────────────────────────────
+   ORNAMENTOS GEOMÉTRICOS
+   ───────────────────────────────────────────────────── */
+.ornament {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  opacity: 0.7;
+  fill: var(--gold-primary);
+}
+
+.ornament-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 3rem auto;
+}
+.ornament-divider::before,
+.ornament-divider::after {
+  content: '';
+  flex: 1;
+  max-width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-deep), transparent);
+}
+
+/* ─────────────────────────────────────────────────────
+   NAV STICKY
+   ───────────────────────────────────────────────────── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(13, 9, 7, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: transform 0.4s ease;
+}
+
+.nav-inner {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.nav-brand {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  color: var(--gold-primary);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.nav-brand span { color: var(--text-muted); font-style: italic; }
+
+.nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--text-muted);
+  font-weight: 400;
+  border-bottom: none;
+}
+.nav-links a:hover { color: var(--gold-primary); }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--border-strong);
+  border-radius: 4px;
+  color: var(--gold-primary);
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  transition: all var(--transition);
+}
+.nav-toggle:hover {
+  background: rgba(197, 165, 114, 0.1);
+  border-color: var(--gold-primary);
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: rgba(13, 9, 7, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0 1.5rem;
+    gap: 1.2rem;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease, padding 0.4s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+  .nav-links.open {
+    padding: 1.5rem;
+    max-height: 560px;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav-toggle { display: block; }
+}
+
+/* ─────────────────────────────────────────────────────
+   HERO
+   ───────────────────────────────────────────────────── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8rem 1.5rem 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 50% 30%, rgba(197, 165, 114, 0.08) 0%, transparent 60%),
+    radial-gradient(circle at 50% 70%, rgba(139, 29, 29, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-arabic {
+  font-family: var(--font-arabic);
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  color: var(--gold-primary);
+  margin-bottom: 1rem;
+  letter-spacing: 0;
+  opacity: 0;
+  animation: fadeUp 1.5s 0.3s forwards;
+}
+
+.hero-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--gold-deep);
+  margin-bottom: 2rem;
+  opacity: 0;
+  animation: fadeUp 1.5s 0.5s forwards;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  opacity: 0;
+  animation: fadeUp 1.5s 0.7s forwards;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold-primary);
+  font-weight: 300;
+}
+
+.hero-tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  color: var(--text-muted);
+  font-style: italic;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  opacity: 0;
+  animation: fadeUp 1.5s 0.9s forwards;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0;
+  animation: fadeUp 1.5s 1.1s forwards;
+}
+
+.hero-meta div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.hero-meta strong {
+  color: var(--gold-primary);
+  font-weight: 500;
+  font-size: 1.1rem;
+  font-family: var(--font-display);
+  letter-spacing: 0;
+  text-transform: none;
+  font-style: italic;
+}
+
+.hero-resources {
+  display: flex;
+  justify-content: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  opacity: 0;
+  animation: fadeUp 1.5s 1.25s forwards;
+}
+
+.hero-resource-link {
+  min-width: 160px;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--border-strong);
+  color: var(--text-primary);
+  background: rgba(13, 9, 7, 0.34);
+  font-family: var(--font-ui);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.hero-resource-link:hover,
+.hero-resource-link:focus-visible {
+  color: var(--gold-primary);
+  border-color: var(--gold-primary);
+  background: rgba(197, 165, 114, 0.1);
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 1.5s 1.5s forwards;
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 50px;
+  background: linear-gradient(180deg, var(--gold-deep), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}
+
+/* ─────────────────────────────────────────────────────
+   SECCIÓN BASE
+   ───────────────────────────────────────────────────── */
+section {
+  padding: 6rem 1.5rem;
+  max-width: var(--max-wide);
+  margin: 0 auto;
+}
+
+.section-eyebrow {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--gold-deep);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  max-width: 30ch;
+}
+.section-title em {
+  font-style: italic;
+  color: var(--gold-primary);
+  font-weight: 300;
+}
+
+.section-intro {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--text-muted);
+  max-width: 60ch;
+  margin-bottom: 3rem;
+  line-height: 1.5;
+}
+
+.prose {
+  max-width: var(--max-content);
+}
+.prose p { font-size: 1.05rem; line-height: 1.75; }
+.prose p + p { margin-top: 0; }
+
+/* ─────────────────────────────────────────────────────
+   ¿QUIÉN FUE? — BLOQUE INTRO
+   ───────────────────────────────────────────────────── */
+.intro-section {
+  position: relative;
+  background: linear-gradient(180deg, var(--bg-base), var(--bg-deep) 50%, var(--bg-base));
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.intro-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.intro-stat {
+  border-left: 1px solid var(--gold-deep);
+  padding-left: 1.5rem;
+}
+.intro-stat-label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  margin-bottom: 0.5rem;
+}
+.intro-stat-value {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  font-style: italic;
+}
+
+.intro-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: sticky;
+  top: 100px;
+}
+
+@media (max-width: 800px) {
+  .intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .intro-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.5rem;
+    position: static;
+    margin-bottom: 2rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────
+   PERSONAJES — GRID
+   ───────────────────────────────────────────────────── */
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr));
+  gap: 1.25rem;
+  margin-top: 2rem;
+}
+
+.character-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 1.75rem;
+  position: relative;
+  transition: all var(--transition);
+  cursor: pointer;
+  overflow: hidden;
+}
+.character-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold-deep), transparent);
+  transform: scaleX(0);
+  transition: transform 0.5s ease;
+  transform-origin: left;
+}
+.character-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+}
+.character-card:hover::before { transform: scaleX(1); }
+
+.character-card[data-side="husain"] { border-left: 2px solid var(--green-husain); }
+.character-card[data-side="yazid"] { border-left: 2px solid var(--crimson); }
+.character-card[data-side="convert"] { border-left: 2px solid var(--gold-deep); }
+
+.character-name {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+.character-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.05rem;
+  color: var(--gold-primary);
+  direction: rtl;
+  margin-bottom: 0.5rem;
+}
+.character-role {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+  margin-bottom: 1rem;
+}
+.character-bio {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+.character-fate {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+}
+.character-fate strong { color: var(--gold-primary); font-weight: 500; }
+
+.characters-legend {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 1.5rem;
+}
+.legend-item { display: flex; align-items: center; gap: 0.5rem; }
+.legend-swatch {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--border-strong);
+}
+
+/* ─────────────────────────────────────────────────────
+   LÍNEA TEMPORAL
+   ───────────────────────────────────────────────────── */
+.timeline-section {
+  background: var(--bg-deep);
+  margin: 0;
+  max-width: 100%;
+  padding-left: 0;
+  padding-right: 0;
+}
+.timeline-wrap {
+  max-width: var(--max-wide);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 3rem;
+  padding-left: 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, transparent, var(--gold-deep) 5%, var(--gold-deep) 95%, transparent);
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 3rem;
+  padding-bottom: 3rem;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.timeline-item.visible { opacity: 1; transform: translateX(0); }
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 8px;
+  width: 13px;
+  height: 13px;
+  background: var(--bg-deep);
+  border: 2px solid var(--gold-deep);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+
+.timeline-item.visible::before {
+  background: var(--gold-primary);
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 0 4px rgba(197, 165, 114, 0.15);
+}
+
+.timeline-item.pivotal::before {
+  background: var(--crimson);
+  border-color: var(--gold-primary);
+  width: 17px;
+  height: 17px;
+  left: 4px;
+  top: 6px;
+}
+
+.timeline-date {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  color: var(--gold-primary);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.timeline-date small {
+  color: var(--text-faint);
+  font-size: 0.85em;
+  letter-spacing: 0.05em;
+  text-transform: none;
+}
+
+.timeline-event {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+.timeline-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  max-width: 60ch;
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────
+   NARRACIÓN — CAPÍTULOS
+   ───────────────────────────────────────────────────── */
+.chapters {
+  margin-top: 3rem;
+}
+
+.chapter {
+  border-top: 1px solid var(--border-subtle);
+  padding: 3.5rem 0;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 3rem;
+}
+@media (max-width: 800px) {
+  .chapter { grid-template-columns: 1fr; gap: 1rem; padding: 2.5rem 0; }
+}
+
+.chapter:last-child { border-bottom: 1px solid var(--border-subtle); }
+
+.chapter-meta {
+  position: sticky;
+  top: 100px;
+  height: fit-content;
+}
+@media (max-width: 800px) { .chapter-meta { position: static; } }
+
+.chapter-num {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-style: italic;
+  color: var(--gold-deep);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.chapter-when {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-faint);
+}
+
+.chapter-body h3 {
+  font-size: 1.8rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+.chapter-body p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-body);
+}
+
+.chapter-body blockquote {
+  border-left: 3px solid var(--gold-deep);
+  padding: 0.75rem 0 0.75rem 1.5rem;
+  margin: 1.5rem 0;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--gold-primary);
+}
+.chapter-body blockquote cite {
+  display: block;
+  font-style: normal;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-top: 0.75rem;
+}
+
+/* ─────────────────────────────────────────────────────
+   PERSPECTIVAS — TABS
+   ───────────────────────────────────────────────────── */
+.tabs {
+  display: flex;
+  gap: 0;
+  border-bottom: 1px solid var(--border-subtle);
+  margin: 2rem 0 2.5rem;
+  flex-wrap: wrap;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding: 1rem 1.5rem;
+  font-family: var(--font-ui);
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  cursor: pointer;
+  position: relative;
+  transition: color var(--transition);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+}
+.tab:hover { color: var(--text-primary); }
+.tab.active {
+  color: var(--gold-primary);
+  border-bottom-color: var(--gold-primary);
+}
+
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.6s ease;
+}
+.tab-panel.active { display: block; }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.perspective-quote {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-style: italic;
+  color: var(--gold-primary);
+  border-left: 3px solid var(--gold-deep);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  max-width: 50ch;
+}
+.perspective-quote cite {
+  display: block;
+  font-style: normal;
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 0.75rem;
+}
+
+/* ─────────────────────────────────────────────────────
+   FUENTES
+   ───────────────────────────────────────────────────── */
+.sources-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(290px, 100%), 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.source-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all var(--transition);
+}
+.source-card:hover { border-color: var(--gold-deep); background: var(--bg-card); }
+
+.source-title {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-style: italic;
+}
+.source-author {
+  font-family: var(--font-ui);
+  font-size: 0.8rem;
+  color: var(--gold-primary);
+  letter-spacing: 0.05em;
+}
+.source-date {
+  font-family: var(--font-ui);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.source-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+/* ─────────────────────────────────────────────────────
+   CONMEMORACIÓN — BLOQUES
+   ───────────────────────────────────────────────────── */
+.commemoration-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.commemoration-block {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+.commemoration-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 80px;
+  background-image: radial-gradient(circle, var(--gold-deep), transparent 70%);
+  opacity: 0.15;
+  transform: translate(40%, -40%);
+}
+
+.commemoration-block h4 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--gold-primary);
+  margin-bottom: 0.25rem;
+  font-style: italic;
+  font-weight: 500;
+}
+.commemoration-block .ar {
+  font-family: var(--font-arabic);
+  color: var(--gold-deep);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+.commemoration-block p {
+  font-size: 0.95rem;
+  color: var(--text-body);
+  line-height: 1.6;
+}
+
+/* ─────────────────────────────────────────────────────
+   LEGADO — STATS + TEXTO
+   ───────────────────────────────────────────────────── */
+.legacy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+@media (max-width: 800px) { .legacy-grid { grid-template-columns: 1fr; gap: 2rem; } }
+
+.legacy-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.legacy-stat {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 1.25rem;
+}
+.legacy-stat:first-child { border-top: 1px solid var(--gold-deep); }
+
+.legacy-stat-number {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--gold-primary);
+  font-weight: 300;
+  line-height: 1;
+  font-style: italic;
+}
+.legacy-stat-number small {
+  font-size: 0.4em;
+  color: var(--text-muted);
+  font-style: normal;
+  margin-left: 0.5rem;
+  letter-spacing: 0.1em;
+}
+.legacy-stat-label {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+.legacy-stat-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-top: 0.75rem;
+  line-height: 1.5;
+}
+
+/* ─────────────────────────────────────────────────────
+   FOOTER
+   ───────────────────────────────────────────────────── */
+.footer {
+  background: var(--bg-deep);
+  border-top: 1px solid var(--border-subtle);
+  padding: 4rem 1.5rem 2rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+.footer-arabic {
+  font-family: var(--font-arabic);
+  font-size: 1.5rem;
+  color: var(--gold-primary);
+  margin-bottom: 1rem;
+}
+.footer-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+.footer-meta {
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin-top: 2rem;
+}
+
+/* ─────────────────────────────────────────────────────
+   ILUSTRACIONES NARRATIVAS
+   ───────────────────────────────────────────────────── */
+.chapter-illustration {
+  margin: 2.5rem 0;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-deep);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.chapter-illustration:hover {
+  border-color: var(--border-strong);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.8);
+}
+
+.chapter-illustration img {
+  width: 100%;
+  height: auto;
+  max-height: 450px;
+  object-fit: cover;
+  display: block;
+  filter: sepia(15%) contrast(102%) brightness(95%);
+  transition: filter var(--transition), transform var(--transition);
+}
+
+.chapter-illustration:hover img {
+  filter: sepia(5%) contrast(105%) brightness(100%);
+}
+
+.chapter-illustration-caption {
+  padding: 1rem 1.5rem;
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border-subtle);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ─────────────────────────────────────────────────────
+   REVEAL ANIMATION GENERAL
+   ───────────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ─────────────────────────────────────────────────────
+   RESPONSIVE TWEAKS
+   ───────────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  body { font-size: 16px; }
+  section { padding: 4.5rem 1.25rem; }
+  
+  .hero { padding-top: 7rem; padding-bottom: 3rem; }
+  .hero h1 { font-size: clamp(2rem, 9vw, 3.2rem); }
+  .hero-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+  .hero-meta div {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .hero-meta div:last-child {
+    border-bottom: none;
+  }
+  .hero-resources {
+    width: 100%;
+    max-width: 320px;
+    margin: 1.75rem auto 0;
+  }
+  .hero-resource-link {
+    width: 100%;
+  }
+  
+  .nav-brand { font-size: 1.1rem; }
+  .nav-brand span { display: none; }
+  
+  .character-card {
+    padding: 1.25rem;
+  }
+  
+  .timeline::before {
+    left: 8px;
+  }
+  .timeline-item {
+    padding-left: 2rem;
+    padding-bottom: 2rem;
+  }
+  .timeline-item::before {
+    left: 2px;
+    width: 11px;
+    height: 11px;
+  }
+  .timeline-item.pivotal::before {
+    left: -1px;
+    width: 15px;
+    height: 15px;
+  }
+  
+  .chapter { padding: 2rem 0; }
+  .chapter-num { font-size: 2.5rem; }
+  
+  .tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    margin: 1.5rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .tab {
+    flex: 0 0 auto;
+    padding: 0.8rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  
+  .chapter-illustration img {
+    max-height: 280px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--gold-primary);
+  outline-offset: 2px;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     NAVEGACIÓN
+     ═══════════════════════════════════════════════════ -->
+<nav class="nav" aria-label="Navegación principal">
+  <div class="nav-inner">
+    <div class="nav-brand">Karbala · <span>61 H / 680 d.C.</span></div>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menú</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#intro">Quién</a></li>
+      <li><a href="#contexto">Contexto</a></li>
+      <li><a href="#personajes">Personajes</a></li>
+      <li><a href="#cronologia">Cronología</a></li>
+      <li><a href="#narracion">Narración</a></li>
+      <li><a href="#perspectivas">Perspectivas</a></li>
+      <li><a href="#fuentes">Fuentes</a></li>
+      <li><a href="#legado">Legado</a></li>
+      <li><a href="/pdf/martirio-imam-husein-karbala.pdf" target="_blank" rel="noopener">PDF</a></li>
+      <li><a href="/presentacion/participantes-batalla-karbala.pdf" target="_blank" rel="noopener">Presentacion</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════════════ -->
+<header class="hero" id="top">
+  <div class="hero-arabic">استشهاد الإمام الحسين عليه السلام</div>
+  <div class="hero-eyebrow">Karbala · Llanura del Éufrates</div>
+  <h1>El Martirio del <em>Imam Husein</em></h1>
+  <p class="hero-tagline">
+    «La muerte con dignidad es mejor que una vida de humillación»
+  </p>
+  <div class="hero-meta">
+    <div>
+      <span>Fecha</span>
+      <strong>10 Muharram, 61 H</strong>
+    </div>
+    <div>
+      <span>Equivalente</span>
+      <strong>10 octubre, 680 d.C.</strong>
+    </div>
+    <div>
+      <span>Mártires</span>
+      <strong>72 compañeros</strong>
+    </div>
+  </div>
+  <div class="hero-resources" aria-label="Recursos del proyecto">
+    <a class="hero-resource-link" href="/pdf/martirio-imam-husein-karbala.pdf" target="_blank" rel="noopener">Ver PDF</a>
+    <a class="hero-resource-link" href="/presentacion/participantes-batalla-karbala.pdf" target="_blank" rel="noopener">Ver presentacion</a>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════
+     INTRODUCCIÓN — ¿QUIÉN FUE?
+     ═══════════════════════════════════════════════════ -->
+<section id="intro" class="intro-section">
+  <div class="intro-grid">
+    <aside class="intro-stats">
+      <div class="intro-stat">
+        <div class="intro-stat-label">Nacimiento</div>
+        <div class="intro-stat-value">Medina, c. 626 d.C.</div>
+      </div>
+      <div class="intro-stat">
+        <div class="intro-stat-label">Padre</div>
+        <div class="intro-stat-value">Ali ibn Abi Talib</div>
+      </div>
+      <div class="intro-stat">
+        <div class="intro-stat-label">Madre</div>
+        <div class="intro-stat-value">Fátima al-Zahra</div>
+      </div>
+      <div class="intro-stat">
+        <div class="intro-stat-label">Abuelo materno</div>
+        <div class="intro-stat-value">Profeta Muhammad</div>
+      </div>
+      <div class="intro-stat">
+        <div class="intro-stat-label">Posición chií</div>
+        <div class="intro-stat-value">Tercer Imam</div>
+      </div>
+    </aside>
+
+    <div class="prose">
+      <span class="section-eyebrow">Quién fue</span>
+      <h2 class="section-title">El nieto del Profeta que se negó a <em>jurar lealtad</em></h2>
+
+      <p>Husein ibn Ali fue el segundo hijo de Ali ibn Abi Talib —primo, yerno y cuarto sucesor del Profeta Muhammad— y de Fátima al-Zahra, hija del propio Profeta. Junto a su hermano mayor Hasan, la tradición islámica los recuerda como «los señores de los jóvenes del Paraíso».</p>
+
+      <p>A la muerte de su hermano Hasan en el año 670 se convirtió en cabeza del clan de los Banu Hashim. Durante una década mantuvo una resistencia silenciosa al gobierno del califa omeya Muawiya. Pero cuando Muawiya murió en abril del 680 y su hijo Yazid I exigió el juramento de lealtad —la <em>bay'a</em>—, Husein lo rechazó.</p>
+
+      <p>Aquella negativa, formulada en términos de principio y no de cálculo militar, lo llevó cuatro meses después a la llanura desértica de Karbala, donde fue rodeado, privado del agua del Éufrates y, finalmente, muerto junto a casi todos sus compañeros varones. El acontecimiento, ocurrido en el décimo día del mes sagrado de Muharram, transformó al chiísmo de facción política en comunidad religiosa diferenciada y se convirtió en uno de los símbolos más poderosos de resistencia contra la tiranía en la historia universal.</p>
+
+      <div class="chapter-illustration reveal">
+        <img src="/img/mision-principal.png" alt="La misión del Imam Husein" loading="lazy">
+        <div class="chapter-illustration-caption">Representación de la misión principal de resistencia frente a la opresión del Imam Husein ibn Ali.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CONTEXTO HISTÓRICO
+     ═══════════════════════════════════════════════════ -->
+<section id="contexto">
+  <span class="section-eyebrow">El camino hasta Karbala</span>
+  <h2 class="section-title">Cincuenta años de <em>tensiones sucesorias</em></h2>
+  <p class="section-intro">Para entender lo que ocurrió en el desierto del Éufrates es necesario remontarse al momento mismo en que el Profeta murió, dejando una pregunta sin respuesta clara: ¿quién debía sucederle?</p>
+
+  <div class="prose">
+    <p>En el año 632, a la muerte del Profeta Muhammad, la comunidad musulmana eligió sucesivamente a cuatro califas: Abu Bakr (632–634), Umar (634–644), Uthman (644–656) y, finalmente, Ali ibn Abi Talib (656–661). Pero la elección de Ali, padre de Husein, llegó tras el asesinato de Uthman y desencadenó la <strong>Primera Fitna</strong>, la primera guerra civil del islam. Ali fue impugnado militarmente por Muawiya, gobernador omeya de Siria, en la batalla de Siffín (657), y finalmente asesinado en 661 por un jariyí.</p>
+
+    <p>Hasan, hijo mayor de Ali y hermano de Husein, le sucedió brevemente. Pero ante el avance militar de Muawiya, firmó con él un tratado de paz: cedía el poder a cambio de evitar más derramamiento de sangre y de que, a la muerte de Muawiya, la sucesión se determinara por <em>shura</em> (consulta) sin instaurar una dinastía. Algunas versiones añaden que el poder debía retornar a Hasan o, en su defecto, a Husein. Hasan murió en 670, probablemente envenenado; el orientalista Wilferd Madelung considera a Muawiya el instigador.</p>
+
+    <p>Hacia 676, Muawiya tomó una decisión sin precedentes en la historia del islam: <strong>nombrar a su propio hijo Yazid como heredero</strong>. Convocó a los hombres influyentes del califato a Damasco y obtuvo su apoyo mediante una combinación de halagos, sobornos y amenazas. Fue la primera sucesión hereditaria en la historia musulmana. Cuatro de los hijos de los compañeros más prominentes del Profeta —entre ellos Husein y Abd Allah ibn al-Zubayr— se negaron a reconocerla, argumentando que la sucesión hereditaria era ajena tanto a la costumbre árabe como a los principios islámicos.</p>
+
+    <p>Cuando Muawiya murió en abril de 680, Yazid dio órdenes inmediatas al gobernador de Medina: obtener la <em>bay'a</em> de Husein por la fuerza si era necesario. Husein, en lugar de jurar, abandonó Medina con su familia y se refugió en el santuario de La Meca. Allí comenzaron a llegarle cartas desde Kufa, la ciudad iraquí que había sido capital del califato de su padre Ali. Los kufíes le pedían que viniera a liderarlos contra el nuevo califa omeya. Husein, tras consultar, envió a su primo Muslim ibn Aqil para evaluar la situación. Era el principio del fin.</p>
+  </div>
+</section>
+
+<!-- divisor -->
+<div class="ornament-divider" aria-hidden="true">
+  <svg class="ornament" viewBox="0 0 60 60">
+    <g fill="none" stroke="currentColor" stroke-width="1" style="color: var(--gold-primary);">
+      <circle cx="30" cy="30" r="14"/>
+      <circle cx="30" cy="30" r="8"/>
+      <path d="M30 8 L36 22 L52 22 L40 32 L44 48 L30 38 L16 48 L20 32 L8 22 L24 22 Z"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PERSONAJES
+     ═══════════════════════════════════════════════════ -->
+<section id="personajes">
+  <span class="section-eyebrow">Dramatis personae</span>
+  <h2 class="section-title">Los protagonistas de <em>Karbala</em></h2>
+  <p class="section-intro">Casi cada figura de esta tragedia es nombrada por las crónicas con detalle. Familiares, compañeros leales, generales que dudaron, oficiales que cumplieron órdenes brutales.</p>
+
+  <div class="characters-legend" aria-label="Leyenda">
+    <div class="legend-item"><span class="legend-swatch" style="background: var(--green-husain);"></span>Campamento de Husein</div>
+    <div class="legend-item"><span class="legend-swatch" style="background: var(--crimson);"></span>Campamento omeya</div>
+    <div class="legend-item"><span class="legend-swatch" style="background: var(--gold-deep);"></span>Cambió de bando</div>
+  </div>
+
+  <div class="characters-grid">
+
+    <article class="character-card" data-side="husain">
+      <h3 class="character-name">al-Husein ibn Ali</h3>
+      <div class="character-arabic">الحسين بن علي</div>
+      <div class="character-role">Tercer Imam · Sayyid al-Shuhada</div>
+      <p class="character-bio">Nieto del Profeta, hijo de Ali y Fátima. Reconocido como la cabeza de los Banu Hashim tras la muerte de su hermano Hasan. Rechazó jurar lealtad a Yazid.</p>
+      <div class="character-fate"><strong>Mártir</strong> el 10 de Muharram de 61 H, a los 54 años.</div>
+    </article>
+
+    <article class="character-card" data-side="husain">
+      <h3 class="character-name">Zaynab bint Ali</h3>
+      <div class="character-arabic">زينب بنت علي</div>
+      <div class="character-role">Hermana de Husein · «Heroína de Karbala»</div>
+      <p class="character-bio">Hija de Ali y Fátima. Cuidó de las mujeres y niños durante el cerco. Tras el martirio fue tomada cautiva. Su sermón en la corte de Yazid en Damasco es una de las piezas oratorias más célebres del islam.</p>
+      <div class="character-fate"><strong>Sobrevivió.</strong> Preservó la memoria del acontecimiento.</div>
+    </article>
+
+    <article class="character-card" data-side="husain">
+      <h3 class="character-name">Abbas ibn Ali</h3>
+      <div class="character-arabic">العباس بن علي</div>
+      <div class="character-role">Hermano y portaestandarte</div>
+      <p class="character-bio">Medio hermano de Husein por parte de padre. Conocido como «Qamar Bani Hashim» (la luna de los hashimíes) por su belleza y como «al-Saqqa» (el aguador) por intentar llevar agua a los niños sedientos del campamento.</p>
+      <div class="character-fate"><strong>Mártir</strong> junto al Éufrates, con ambos brazos cortados.</div>
+    </article>
+
+    <article class="character-card" data-side="husain">
+      <h3 class="character-name">Ali Akbar</h3>
+      <div class="character-arabic">علي الأكبر</div>
+      <div class="character-role">Hijo mayor de Husein</div>
+      <p class="character-bio">Joven de unos 18 años, descrito por las crónicas como el más parecido al Profeta en rostro, voz y carácter. Pidió permiso a su padre para combatir y obtuvo licencia con dolor.</p>
+      <div class="character-fate"><strong>Mártir</strong> en uno de los primeros combates singulares.</div>
+    </article>
+
+    <article class="character-card" data-side="husain">
+      <h3 class="character-name">Ali Asghar</h3>
+      <div class="character-arabic">علي الأصغر</div>
+      <div class="character-role">Hijo lactante de Husein</div>
+      <p class="character-bio">Bebé de meses, también conocido como Abd Allah. Husein lo llevó en brazos hasta el ejército enemigo pidiendo agua para él. Fue atravesado por una flecha en el cuello.</p>
+      <div class="character-fate"><strong>Mártir</strong> en los brazos de su padre.</div>
+    </article>
+
+    <article class="character-card" data-side="husain">
+      <h3 class="character-name">Qasim ibn Hasan</h3>
+      <div class="character-arabic">القاسم بن الحسن</div>
+      <div class="character-role">Sobrino adolescente</div>
+      <p class="character-bio">Hijo de Hasan, sobrino de Husein. Tenía 13 años. Su muerte es uno de los episodios más llorados, especialmente en la tradición popular subcontinental que recrea su «boda» póstuma con su prometida Fátima Kubra.</p>
+      <div class="character-fate"><strong>Mártir</strong> aplastado bajo los cascos de los caballos.</div>
+    </article>
+
+    <article class="character-card" data-side="husain">
+      <h3 class="character-name">Ali Zayn al-Abidin</h3>
+      <div class="character-arabic">علي زين العابدين</div>
+      <div class="character-role">Único hijo varón superviviente · Cuarto Imam</div>
+      <p class="character-bio">Hijo mediano de Husein, ausente del combate por una enfermedad grave que le impedía levantarse. Cuando Ibn Ziyad ordenó matarlo, Zaynab lo protegió interponiendo su propio cuerpo.</p>
+      <div class="character-fate"><strong>Sobrevivió.</strong> Continuó la línea imamí.</div>
+    </article>
+
+    <article class="character-card" data-side="husain">
+      <h3 class="character-name">Muslim ibn Aqil</h3>
+      <div class="character-arabic">مسلم بن عقيل</div>
+      <div class="character-role">Primo y emisario de Husein</div>
+      <p class="character-bio">Enviado por Husein a Kufa para evaluar las promesas de lealtad. Recibió juramentos de miles de kufíes, pero todos lo abandonaron cuando Ibn Ziyad endureció la represión.</p>
+      <div class="character-fate"><strong>Ejecutado</strong> en Kufa el 9 de Dhu al-Hijja de 60 H.</div>
+    </article>
+
+    <article class="character-card" data-side="convert">
+      <h3 class="character-name">al-Hurr ibn Yazid</h3>
+      <div class="character-arabic">الحر بن يزيد</div>
+      <div class="character-role">Comandante kufí · El arrepentido</div>
+      <p class="character-bio">Al mando de los 1.000 jinetes que interceptaron a Husein y lo forzaron a desviarse hacia Karbala. La mañana de Ashura, atormentado por la conciencia, cambió de bando y pidió permiso para combatir junto a Husein.</p>
+      <div class="character-fate"><strong>Mártir</strong> al lado del Imam.</div>
+    </article>
+
+    <article class="character-card" data-side="yazid">
+      <h3 class="character-name">Yazid I</h3>
+      <div class="character-arabic">يزيد بن معاوية</div>
+      <div class="character-role">Califa omeya</div>
+      <p class="character-bio">Hijo y sucesor de Muawiya, primer califa hereditario en la historia del islam. Su exigencia de la <em>bay'a</em> precipitó el viaje de Husein. Recibió en Damasco las cabezas de los mártires y a las cautivas.</p>
+      <div class="character-fate">Murió en 683, tres años después de Karbala.</div>
+    </article>
+
+    <article class="character-card" data-side="yazid">
+      <h3 class="character-name">Ubayd-Allah ibn Ziyad</h3>
+      <div class="character-arabic">عبيد الله بن زياد</div>
+      <div class="character-role">Gobernador de Kufa</div>
+      <p class="character-bio">Nombrado por Yazid para sustituir al moderado al-Nu'man ibn Bashir. Aplastó la conspiración pro-Husein en Kufa, ejecutó a Muslim ibn Aqil y dirigió la represión contra Husein desde la retaguardia.</p>
+      <div class="character-fate">Ejecutado en 686 en la revuelta de Mukhtar.</div>
+    </article>
+
+    <article class="character-card" data-side="yazid">
+      <h3 class="character-name">Umar ibn Sa'd</h3>
+      <div class="character-arabic">عمر بن سعد</div>
+      <div class="character-role">General omeya en el terreno</div>
+      <p class="character-bio">Hijo del célebre compañero Sa'd ibn Abi Waqqas. Comandó las tropas omeyas en Karbala a cambio del gobierno prometido de Rayy. Vaciló hasta el último momento. Cuenta la tradición que no pudo dormir desde aquel día.</p>
+      <div class="character-fate">Ejecutado en 686 por orden de Mukhtar.</div>
+    </article>
+
+    <article class="character-card" data-side="yazid">
+      <h3 class="character-name">Shimr ibn Dhi al-Jawshan</h3>
+      <div class="character-arabic">شمر بن ذي الجوشن</div>
+      <div class="character-role">Oficial omeya · El verdugo</div>
+      <p class="character-bio">Encargado por Ibn Ziyad de empujar a Umar ibn Sa'd a actuar. Lideró la última carga contra el campamento de Husein. La tradición chií le atribuye el golpe final que decapitó al Imam.</p>
+      <div class="character-fate">Ejecutado en 686 por las fuerzas de Mukhtar.</div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     LÍNEA TEMPORAL
+     ═══════════════════════════════════════════════════ -->
+<section id="cronologia" class="timeline-section">
+  <div class="timeline-wrap">
+    <span class="section-eyebrow">Cronología</span>
+    <h2 class="section-title">De Medina a Damasco · <em>medio siglo de tensión</em></h2>
+    <p class="section-intro">Cada fecha sigue el calendario hégira con su equivalencia gregoriana. Los hitos pivotales aparecen marcados con rombo carmesí.</p>
+
+    <ol class="timeline">
+
+      <li class="timeline-item">
+        <div class="timeline-date">632 d.C. <small>· 11 H</small></div>
+        <div class="timeline-event">Muerte del Profeta Muhammad</div>
+        <div class="timeline-desc">Comienza la disputa por la sucesión. Abu Bakr es elegido primer califa. Comienza el debate, latente todavía, entre quienes ven el liderazgo como atributo de Quraysh y quienes lo ven como derecho de la familia del Profeta.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">656–661 d.C. <small>· 35–40 H</small></div>
+        <div class="timeline-event">Califato de Ali ibn Abi Talib</div>
+        <div class="timeline-desc">Ali, padre de Husein, asume el califato tras el asesinato de Uthman. Su reinado está marcado por las batallas de Siffín y Nahrawan. Husein, ya adulto, combate junto a su padre.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">661 d.C. <small>· 40 H</small></div>
+        <div class="timeline-event">Asesinato de Ali · Tratado Hasan–Muawiya</div>
+        <div class="timeline-desc">Ali es asesinado en Kufa por un jariyí. Su hijo Hasan le sucede pero pronto firma un tratado de paz con Muawiya: cede el poder a cambio de que la sucesión vuelva a determinarse por consulta tras la muerte de Muawiya.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">670 d.C. <small>· 50 H</small></div>
+        <div class="timeline-event">Muerte de Hasan</div>
+        <div class="timeline-desc">Hasan muere, probablemente envenenado. Husein se convierte en cabeza de los Banu Hashim, pero mantiene la palabra empeñada por su hermano y no desafía abiertamente a Muawiya.</div>
+      </li>
+
+      <li class="timeline-item pivotal">
+        <div class="timeline-date">676 d.C. <small>· 56 H</small></div>
+        <div class="timeline-event">Yazid I nombrado heredero</div>
+        <div class="timeline-desc">Muawiya designa a su hijo Yazid como sucesor, en contra del tratado. Es la primera sucesión hereditaria de la historia del islam. Husein, ibn al-Zubayr y otros se niegan a reconocerla.</div>
+      </li>
+
+      <li class="timeline-item pivotal">
+        <div class="timeline-date">Abril 680 d.C. <small>· Rajab 60 H</small></div>
+        <div class="timeline-event">Muere Muawiya · Yazid exige la <em>bay'a</em></div>
+        <div class="timeline-desc">Yazid ordena al gobernador de Medina, al-Walid, que obtenga la lealtad de Husein por la fuerza si es necesario. Husein abandona Medina con su familia y se refugia en La Meca.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">Junio 680 d.C. <small>· Ramadán 60 H</small></div>
+        <div class="timeline-event">Llegan las cartas de Kufa</div>
+        <div class="timeline-desc">Los kufíes envían numerosas misivas invitando a Husein a venir a liderarlos contra Yazid. Husein envía a su primo Muslim ibn Aqil como emisario el 15 de Ramadán.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">Julio 680 d.C. <small>· Shawwal 60 H</small></div>
+        <div class="timeline-event">Muslim en Kufa</div>
+        <div class="timeline-desc">Muslim entra en Kufa el 5 de Shawwal y recibe la lealtad de miles de kufíes —las fuentes hablan de entre 12.000 y 18.000—. Escribe a Husein urgiéndole a venir.</div>
+      </li>
+
+      <li class="timeline-item pivotal">
+        <div class="timeline-date">9 Dhu al-Hijja 60 H <small>· Sep 680</small></div>
+        <div class="timeline-event">Ejecución de Muslim ibn Aqil</div>
+        <div class="timeline-desc">Yazid sustituye al gobernador moderado por el implacable Ubayd-Allah ibn Ziyad. Mediante sobornos y amenazas a los jefes tribales, Ibn Ziyad desarticula el apoyo a Muslim. Capturado y ejecutado el Día de Arafa.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">8 Dhu al-Hijja 60 H</div>
+        <div class="timeline-event">Husein parte de La Meca</div>
+        <div class="timeline-desc">Justo antes del Hajj, Husein abandona La Meca con su familia y unos 50 compañeros varones, ignorando aún la muerte de Muslim. Avanza hacia el norte rumbo a Kufa.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">Camino a Kufa</div>
+        <div class="timeline-event">Encuentro con al-Hurr</div>
+        <div class="timeline-desc">La caravana es interceptada por un destacamento de 1.000 jinetes al mando de al-Hurr ibn Yazid al-Tamimi, que fuerza a Husein a desviarse de la ruta directa y dirigirse hacia el norte por la orilla del Éufrates.</div>
+      </li>
+
+      <li class="timeline-item pivotal">
+        <div class="timeline-date">2 Muharram 61 H <small>· 2 oct 680</small></div>
+        <div class="timeline-event">Llegada a Karbala</div>
+        <div class="timeline-desc">Husein y su caravana acampan en la llanura desértica de Karbala, a unos 70 km al norte de Kufa. Al día siguiente llega un ejército kufí de 4.000 hombres al mando de Umar ibn Sa'd.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">7 Muharram 61 H</div>
+        <div class="timeline-event">Corte del agua</div>
+        <div class="timeline-desc">Por orden de Ibn Ziyad, las tropas omeyas cortan el acceso del campamento al Éufrates. Mujeres, niños y combatientes padecen sed bajo el sol del desierto.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">9 Muharram · Tasu'a</div>
+        <div class="timeline-event">Tregua nocturna · La noche de Ashura</div>
+        <div class="timeline-desc">Husein pide una noche para orar. Reunidos sus compañeros, apaga las lámparas y los libera públicamente de su juramento. Casi ninguno parte. La noche transcurre en recitación del Corán y oración.</div>
+      </li>
+
+      <li class="timeline-item pivotal">
+        <div class="timeline-date">10 Muharram · Ashura <small>· 10 oct 680</small></div>
+        <div class="timeline-event">La batalla y el martirio</div>
+        <div class="timeline-desc">Al amanecer comienza la batalla. Los compañeros caen uno a uno en combates singulares. Por la tarde, todos los hombres han muerto salvo el Imam. Husein es decapitado. Las mujeres y niños son tomados cautivos.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">11 Muharram en adelante</div>
+        <div class="timeline-event">Cautiverio y traslado</div>
+        <div class="timeline-desc">Las supervivientes son paseadas encadenadas por Kufa y conducidas a la corte de Yazid en Damasco, junto con las cabezas de los mártires clavadas en lanzas. Zaynab pronuncia sus dos sermones desafiantes.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">20 Safar 61 H · Arbaeen</div>
+        <div class="timeline-event">Cuarenta días después</div>
+        <div class="timeline-desc">Cumplidos los cuarenta días de luto. Según la tradición, los supervivientes regresan a Karbala. Origen de la peregrinación anual más numerosa del mundo.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">684–685 d.C. <small>· 65 H</small></div>
+        <div class="timeline-event">Revuelta de los Tawwabin</div>
+        <div class="timeline-desc">Kufíes arrepentidos por no haber socorrido a Husein, liderados por Sulayman ibn Surad, salen al desierto al grito de «<em>Ya la-tharat al-Husayn</em>» — ¡Oh, vengadores de Husein! Son aniquilados en la batalla de Ayn al-Warda.</div>
+      </li>
+
+      <li class="timeline-item">
+        <div class="timeline-date">685–687 d.C. <small>· 66–68 H</small></div>
+        <div class="timeline-event">Mukhtar al-Thaqafi venga a Husein</div>
+        <div class="timeline-desc">Mukhtar toma Kufa, ejecuta a los participantes en Karbala —incluidos Umar ibn Sa'd, Shimr e Ibn Ziyad—, y abre el camino a la transformación del chiísmo en movimiento religioso diferenciado.</div>
+      </li>
+
+    </ol>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     NARRACIÓN COMPLETA
+     ═══════════════════════════════════════════════════ -->
+<section id="narracion">
+  <span class="section-eyebrow">La narración</span>
+  <h2 class="section-title">Los diez capítulos del <em>martirio</em></h2>
+  <p class="section-intro">Reconstruido a partir de las crónicas más antiguas —el <em>Maqtal al-Husayn</em> de Abu Mikhnaf transmitido por al-Tabari y al-Baladhuri, el <em>al-Irshad</em> de al-Mufid y el <em>Luhuf</em> de Ibn Tawus— este es el relato del acontecimiento.</p>
+
+  <div class="chapters">
+
+    <article class="chapter">
+      <header class="chapter-meta">
+        <div class="chapter-num">I</div>
+        <div class="chapter-when">Medina · Rajab 60 H</div>
+      </header>
+      <div class="chapter-body">
+        <h3>La negativa</h3>
+        <p>La noche en que llegó a Medina la noticia de la muerte de Muawiya, el gobernador al-Walid ibn Utba convocó urgentemente a Husein. Tenía órdenes claras de Yazid: el juramento de lealtad debía obtenerse sin demora, y por la fuerza si era preciso. Husein acudió acompañado por un grupo de familiares armados, escuchó la propuesta y respondió que la lealtad no podía darse en secreto, sino solo ante la comunidad reunida en pleno día. Era una respuesta diplomáticamente impecable y políticamente irreversible: significaba que no juraría.</p>
+        <p>Marwan ibn al-Hakam, consejero del gobernador, instó a al-Walid a no dejarlo salir. Pero al-Walid no se atrevió a derramar la sangre del nieto del Profeta dentro de la mezquita misma. Husein abandonó Medina aquella noche con su hermano Abbas, sus hijos, sus sobrinos y las mujeres de su casa. Se dirigieron al único lugar donde podía pedir asilo: el santuario sagrado de La Meca.</p>
+      </div>
+    </article>
+
+    <article class="chapter">
+      <header class="chapter-meta">
+        <div class="chapter-num">II</div>
+        <div class="chapter-when">La Meca · Ramadán 60 H</div>
+      </header>
+      <div class="chapter-body">
+        <h3>Las cartas de Kufa</h3>
+        <p>En La Meca, durante los meses siguientes, comenzaron a llegar mensajeros de Kufa. La antigua capital de su padre Ali, controlada ahora por los omeyas, era un foco latente de oposición. Las cartas se acumulaban: doce mil, dieciocho mil firmas según algunas fuentes. Todas decían lo mismo: «Tenemos un ejército dispuesto. No tenemos imam. Ven y guíanos.»</p>
+        <p>Husein no era ingenuo. Conocía la fama de los kufíes —habían abandonado a su padre Ali y traicionado a su hermano Hasan—. Pero el silencio sería complicidad con la <em>bay'a</em> de Yazid. Decidió enviar a su primo Muslim ibn Aqil con una misión clara: comprobar si las promesas eran reales. Si lo eran, regresaría con noticias y Husein iría. Si no, debía retornar discretamente.</p>
+      </div>
+    </article>
+
+    <article class="chapter">
+      <header class="chapter-meta">
+        <div class="chapter-num">III</div>
+        <div class="chapter-when">Kufa · Shawwal–Dhu al-Hijja 60 H</div>
+      </header>
+      <div class="chapter-body">
+        <h3>La traición de la ciudad</h3>
+        <p>Muslim entró en Kufa el 5 de Shawwal y se alojó en casa del notable Mukhtar al-Thaqafi. Las primeras semanas confirmaron las cartas: una corriente continua de jefes tribales acudía a jurar lealtad al primo del Imam. Muslim escribió a Husein urgiéndole a venir. La carta partió.</p>
+        <p>Pero Yazid, alarmado por los informes, sustituyó al gobernador moderado por Ubayd-Allah ibn Ziyad, gobernador de Basora, hombre temible. Ibn Ziyad entró en Kufa disfrazado en la noche, ocupó el palacio y comenzó una operación quirúrgica: amenazó a los jefes tribales con la confiscación de sus propiedades y la masacre de sus parientes; sobornó a los influyentes; ejecutó a los notables que albergaban a Muslim.</p>
+        <p>Cuando Muslim intentó alzar a sus seguidores el 8 de Dhu al-Hijja, los miles de jurados habían desaparecido. Salieron unos pocos cientos. Al caer la noche, Muslim se encontraba solo. Refugiado en casa de una anciana llamada Taw'a, fue capturado al día siguiente, arrastrado a palacio y decapitado. Antes de morir pidió que enviaran un mensaje a Husein: <em>«No vengáis. Esta gente os ha traicionado.»</em></p>
+      </div>
+    </article>
+
+    <article class="chapter">
+      <header class="chapter-meta">
+        <div class="chapter-num">IV</div>
+        <div class="chapter-when">Del Hiyaz al Iraq · Dhu al-Hijja 60 H</div>
+      </header>
+      <div class="chapter-body">
+        <h3>La marcha sin retorno</h3>
+        <p>Husein ya había partido. El 8 de Dhu al-Hijja —justo antes de que los peregrinos del Hajj completaran sus ritos, para evitar que se derramara sangre en La Meca— abandonó la ciudad santa con su familia y unos cincuenta compañeros varones. Por el camino fue alcanzado por la noticia de la muerte de Muslim. Reunió a su pequeña tropa, les contó la verdad y les ofreció libertad de marcharse. Muchos —los unidos solo por la esperanza de victoria— se separaron en silencio. Quedaron los más cercanos.</p>
+        <blockquote>
+          No me he alzado por capricho, ni como rebelde ni como tirano, sino que me he alzado buscando la reforma de la nación de mi abuelo Muhammad. Quiero ordenar el bien y prohibir el mal.
+          <cite>Atribuido a Husein · Bihar al-Anwar, vol. 44</cite>
+        </blockquote>
+        <p>A pocos días de Kufa, en un lugar llamado Sharaf, divisaron una nube de polvo: era un destacamento de mil jinetes al mando de al-Hurr ibn Yazid al-Tamimi. Su misión era impedir que Husein avanzara o retrocediera, manteniéndolo en el desierto hasta que llegara una decisión de Ibn Ziyad. Husein, viendo a los hombres y caballos sedientos, ordenó a sus compañeros darles de beber el agua de sus odres. Al-Hurr aceptó el agua y la dirección oeste, evitando Kufa. Cabalgaron juntos varios días por la orilla del Éufrates.</p>
+      </div>
+    </article>
+
+    <article class="chapter">
+      <header class="chapter-meta">
+        <div class="chapter-num">V</div>
+        <div class="chapter-when">Karbala · 2 Muharram 61 H</div>
+      </header>
+      <div class="chapter-body">
+        <h3>La llanura</h3>
+        <p>El 2 de Muharram, la caravana se detuvo en una llanura llamada Karbala. Husein preguntó el nombre del lugar. Cuando se lo dijeron, repitió: «<em>Karb wa balaʾ</em> — aflicción y prueba. Aquí descenderán nuestras monturas, aquí derramarán nuestra sangre, aquí estarán nuestras tumbas.» Las tradiciones piadosas dicen que conocía aquel destino de antemano por revelación; los historiadores observan que el simple nombre del lugar bastaba para entender el augurio.</p>
+        <p>Al día siguiente llegó Umar ibn Sa'd, hijo del célebre conquistador Sa'd ibn Abi Waqqas, al mando de cuatro mil hombres. Ibn Ziyad le había prometido el gobierno de Rayy —en el actual Irán— a cambio del trabajo. Umar negoció, dudó, envió cartas a su superior. Las respuestas de Ibn Ziyad fueron endureciéndose hasta convertirse en órdenes terminantes: o Husein juraba la <em>bay'a</em> directamente a Yazid, sin condiciones, o sería atacado.</p>
+        <p>El 7 de Muharram, el cerco se cerró completamente: cinco mil jinetes cortaron el acceso al Éufrates. El pequeño campamento —que las fuentes calculan en unos setenta y dos hombres adultos, más mujeres y niños— quedó sin agua. La sed de los infantes se hizo insoportable.</p>
+      </div>
+    </article>
+
+    <article class="chapter">
+      <header class="chapter-meta">
+        <div class="chapter-num">VI</div>
+        <div class="chapter-when">9 Muharram · Tasu'a</div>
+      </header>
+      <div class="chapter-body">
+        <h3>La noche más larga</h3>
+        <p>La tarde del 9 de Muharram, el ejército omeya recibió la orden de atacar. Husein pidió una sola noche de tregua —para orar, dijo, pues Dios sabía cuánto había amado la oración—. Le fue concedida.</p>
+        <p>Aquella noche reunió a sus compañeros bajo una tienda. Mandó apagar las lámparas, dejando solo una. Habló primero:</p>
+        <blockquote>
+          Os he traído conmigo a una muerte segura. Mañana al amanecer no quedará ninguno de vosotros con vida. Aprovechad la oscuridad de la noche para marcharos. Quito de vosotros mi juramento. Mi familia es a quien buscan; tomad uno de mis hijos en grupos y dispersaos por las tribus. No tengo más obligación con vosotros.
+          <cite>Discurso de la noche de Ashura · al-Tabari, vía Abu Mikhnaf</cite>
+        </blockquote>
+        <p>Hubo un silencio. Habló su hermano Abbas: «<em>¿Por qué deberíamos abandonarte? ¿Para vivir después de ti? ¡Dios nos libre de tal cosa!</em>» Uno tras otro, los compañeros confirmaron su lealtad. Muslim ibn Awsajah, ya anciano, dijo: «Si tuviera setenta vidas, las daría todas por ti.» Zuhayr ibn al-Qayn pidió ser asesinado, vuelto a la vida, y asesinado mil veces, si con ello pudiera salvar a uno de los hijos del Imam.</p>
+        <p>El resto de la noche transcurrió en oración. El campamento de Husein parecía una colmena de zumbido devoto. En el campamento omeya frente a ellos, treinta y dos hombres —entre ellos al-Hurr— escucharon aquella noche el ruido de las plegarias y supieron que algo no estaba bien en su propio bando.</p>
+      </div>
+    </article>
+
+    <article class="chapter">
+      <header class="chapter-meta">
+        <div class="chapter-num">VII</div>
+        <div class="chapter-when">10 Muharram · Ashura · Amanecer</div>
+      </header>
+      <div class="chapter-body">
+        <h3>El amanecer y los primeros mártires</h3>
+        <p>Al alba del viernes 10 de Muharram, Husein realizó la oración del miedo (<em>salat al-jawf</em>) con sus compañeros. Después organizó al pequeño grupo: setenta y dos hombres frente a un ejército que las crónicas estiman en cuatro o cinco mil. Designó a su hermano Abbas portaestandarte. Subió a su camella y pronunció el primer sermón ante el enemigo, recordando su parentesco con el Profeta, mostrando reliquias —el manto del Profeta, su espada—, exhortando al ejército enemigo a recordar a quién se enfrentaba.</p>
+        <p>Algunos lloraron. Al-Hurr, el comandante que lo había interceptado en el desierto, sintió que la conciencia le golpeaba como un martillo. Cabalgó hasta Husein, descendió de su montura y cayó a sus pies: «He sido yo quien te cerré el camino. ¿Hay perdón posible?» Husein lo abrazó y le perdonó. Al-Hurr volvió grupas hacia el enemigo, ahora del otro lado, y cabalgó hacia el ejército al que pertenecía minutos antes. Murió poco después, atravesado por flechas.</p>
+        <p>Tras él fueron cayendo los compañeros, uno a uno, en combates singulares al estilo árabe preislámico: Burayr ibn Hudayr, predicador y conocedor del Corán; Wahb ibn Abd Allah, cuya madre cristiana lo había animado a combatir; Habib ibn Mudhahir, el compañero del Profeta. Muslim ibn Awsajah, herido mortalmente, pidió a Husein: «Si te queda alguna instrucción, déjala para mí: la cumpliré aún muerto.»</p>
+      </div>
+    </article>
+
+    <article class="chapter">
+      <header class="chapter-meta">
+        <div class="chapter-num">VIII</div>
+        <div class="chapter-when">10 Muharram · Mediodía</div>
+      </header>
+      <div class="chapter-body">
+        <h3>Los Banu Hashim</h3>
+        <p>A mediodía Husein hizo una pausa para la oración del Zuhr —dos compañeros murieron protegiendo el espacio en que oraba—. Después, cuando todos los compañeros no familiares habían caído, comenzaron a salir al combate los hombres de la propia familia. Era una procesión que las crónicas describen con un detalle abrumador.</p>
+        <p>Salió primero Ali Akbar, hijo mayor de Husein, de unos dieciocho años. Pidió permiso a su padre. Husein levantó la vista al cielo, dijo «<em>Oh, Dios, sé testigo: ha salido contra ellos un joven que más se parece a tu Profeta en rostro, palabra y porte</em>», y le dio licencia con dolor. Ali Akbar mató a muchos antes de caer. Su cadáver fue llevado al campamento. Husein, según los relatos, lloró por primera vez aquel día.</p>
+        <p>Después salió Qasim, el sobrino adolescente, hijo del difunto Hasan. Tenía trece años. Su madre intentó retenerlo pero Husein le permitió ir, vistiéndolo él mismo con su propia armadura. Qasim combatió hasta caer derribado; los cascos de los caballos lo aplastaron mientras llamaba a su tío. Husein cargó hasta su cuerpo y lo arrastró al campamento.</p>
+        <p>Y salió Abbas. El portaestandarte. El medio hermano del Imam, el más bello y fuerte de los Banu Hashim. Habían pasado horas y los niños del campamento gritaban de sed. Abbas cogió un odre vacío, cabalgó hasta el Éufrates rompiendo el cerco, llenó el odre, lo levantó con la mano izquierda mientras combatía con la derecha. Un golpe le cortó la mano derecha. Pasó el odre a la izquierda; otro golpe le cortó la izquierda. Cayó sosteniendo el odre con los dientes. Una flecha atravesó el odre y el agua, agua que jamás llegaría a los niños, se derramó en la arena. Husein, al verlo morir junto al río, dijo: «<em>Ahora se ha quebrado mi espalda.</em>»</p>
+
+        <div class="chapter-illustration reveal">
+          <img src="/img/al-abaas.jpeg" alt="Abbas ibn Ali en Karbala" loading="lazy">
+          <div class="chapter-illustration-caption">El martirio de al-Abbas ibn Ali junto a la llanura del Éufrates, sosteniendo el estandarte y el odre de agua.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="chapter">
+      <header class="chapter-meta">
+        <div class="chapter-num">IX</div>
+        <div class="chapter-when">10 Muharram · Tarde</div>
+      </header>
+      <div class="chapter-body">
+        <h3>El último mártir</h3>
+        <p>Husein quedó solo. Volvió al campamento, levantó en sus brazos a su hijo lactante —Ali Asghar, también llamado Abd Allah, de meses de edad— y avanzó hacia el ejército enemigo. «<em>Si no compadecéis a un hombre, compadeced a un niño. No ha probado el agua en tres días.</em>» Una flecha, disparada por Hurmala ibn Kahil, atravesó la garganta del bebé. Husein recogió la sangre en el hueco de su mano y la arrojó hacia el cielo.</p>
+        <p>Luego volvió al combate. Las flechas le caían como lluvia. Resistió un tiempo —las crónicas varían entre minutos y horas— combatiendo singularmente contra cuantos osaban acercarse. Tenía heridas innumerables. Cayó del caballo. Llamó al ejército al combate, recordó a los soldados sus propios juramentos a su abuelo el Profeta. Algunos comandantes vacilaban; Shimr ibn Dhi al-Jawshan, enviado por Ibn Ziyad precisamente para evitar la vacilación, gritó: «¿Qué esperáis? ¡Acabad con él!»</p>
+        <p>Un grupo se acercó. Sinan ibn Anas le asestó el golpe de gracia. Khawli ibn Yazid cortó la cabeza. Lo desnudaron. Los caballos pasaron sobre su cuerpo. Quedó en la llanura, descalzo, sin manto, sin sortija; una mancha en la arena. Era la tarde del viernes 10 de Muharram del año 61 de la Hégira. El sol se ponía sobre Karbala.</p>
+      </div>
+    </article>
+
+    <article class="chapter">
+      <header class="chapter-meta">
+        <div class="chapter-num">X</div>
+        <div class="chapter-when">Tras Karbala · Kufa y Damasco</div>
+      </header>
+      <div class="chapter-body">
+        <h3>Las cautivas y el sermón de Zaynab</h3>
+        <p>Las mujeres y niños supervivientes fueron tomados cautivos. Solo un varón quedaba con vida en la familia: Ali ibn Husein, conocido más tarde como Zayn al-Abidin, que estaba postrado por una grave enfermedad y no había podido combatir. Cuando Ibn Ziyad, días después en Kufa, ordenó ejecutarlo, su tía Zaynab se interpuso: «<em>Mátame a mí antes de matarlo a él.</em>» Ibn Ziyad, sorprendido, ordenó dejarlo.</p>
+        <p>La caravana de cautivas fue conducida primero a Kufa, donde fueron exhibidas en la plaza pública junto con las cabezas de los mártires clavadas en lanzas. Allí Zaynab pronunció el primero de sus dos sermones célebres, dirigido al pueblo kufí que aclamaba a su gobernador: «<em>Lloráis ahora, pero fuisteis vosotros quienes lo invitasteis y vosotros quienes lo abandonasteis. ¿Es que pensáis que el llanto borra la sangre?</em>»</p>
+        <p>De Kufa la caravana fue enviada a Damasco, la capital del imperio omeya, viaje que duró semanas. En la corte de Yazid, ante el califa sentado en su trono, las cautivas fueron presentadas todavía encadenadas. Yazid hizo traer la cabeza de Husein y la golpeó con un bastón. Un anciano compañero del Profeta, Abu Barza al-Aslami, presente en la corte, protestó: «<em>Aparta tu bastón. He visto al Mensajero de Dios besar esos mismos labios.</em>»</p>
+        <p>Entonces Zaynab habló. Su sermón ante Yazid —preservado en el <em>Balaghat al-Nisa'</em> de Ibn Tayfur y en el <em>Bihar al-Anwar</em>— comenzó alabando a Dios y citando el Corán: «<em>Que no piensen los incrédulos que la prórroga que les damos es buena para ellos.</em>» Y le advirtió: «<em>Por Dios, no podrás borrar nuestro recuerdo ni extinguir nuestra revelación. Tu vergüenza no se irá. Te has alzado contra el Profeta en sus descendientes y el día del Juicio responderás.</em>»</p>
+        <p>Yazid, según las crónicas, palideció. Liberó a las cautivas y las hizo escoltar de vuelta a Medina. Cuando Zaynab, ya en libertad, fue preguntada cómo había visto lo ocurrido, respondió con una frase que la tradición ha conservado como compendio de su fortaleza: «<em>No he visto sino belleza</em>» — <em>ma ra'aytu illa jamila</em>.</p>
+
+        <div class="chapter-illustration reveal">
+          <img src="/img/zaynab.png" alt="Zaynab bint Ali" loading="lazy">
+          <div class="chapter-illustration-caption">Zaynab bint Ali, la heroína de Karbala, cuyo testimonio y elocuencia impidieron que se borrara la memoria del martirio.</div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- divisor -->
+<div class="ornament-divider" aria-hidden="true">
+  <svg class="ornament" viewBox="0 0 60 60" style="color: var(--gold-primary);">
+    <g fill="none" stroke="currentColor" stroke-width="1">
+      <polygon points="30,5 38,20 55,22 42,33 47,50 30,42 13,50 18,33 5,22 22,20"/>
+      <circle cx="30" cy="30" r="6"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     PERSPECTIVAS
+     ═══════════════════════════════════════════════════ -->
+<section id="perspectivas">
+  <span class="section-eyebrow">Tres lecturas</span>
+  <h2 class="section-title">Cómo se ha leído <em>Karbala</em></h2>
+  <p class="section-intro">Los hechos son ampliamente aceptados. El significado, no. A continuación, las tres principales tradiciones interpretativas: la chií, la suní y la académica moderna.</p>
+
+  <div class="tabs" role="tablist" aria-label="Perspectivas">
+    <button class="tab active" role="tab" aria-selected="true" data-tab="shia">Perspectiva chií</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="sunni">Perspectiva suní</button>
+    <button class="tab" role="tab" aria-selected="false" data-tab="academic">Análisis académico</button>
+  </div>
+
+  <div class="tab-panel active prose" id="panel-shia" role="tabpanel">
+    <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-primary); margin-bottom: 1rem;">El sacrificio que redime</h3>
+    <p>Para la tradición chií —en particular el chiísmo duodecimano (<em>ithna ʿashariyya</em>), mayoritario en Irán, Irak, Líbano y Baréin—, Husein es el «Príncipe de los Mártires» (<em>Sayyid al-Shuhada</em>). Su muerte no es solo una tragedia política sino un acontecimiento de dimensiones cósmicas.</p>
+
+    <p>Como tercer Imam de los Doce, Husein es considerado <em>maʿsum</em> —infalible, libre de error—, heredero del conocimiento profético transmitido por línea directa desde el Profeta a través de Ali. Su decisión de marchar a Kufa no fue, en esta lectura, una equivocación de cálculo militar: fue una elección consciente y profética, hecha con pleno conocimiento del destino que le esperaba, para que la verdad del islam no fuera silenciada bajo la apariencia de un califato corrupto.</p>
+
+    <blockquote class="perspective-quote">
+      El sufrimiento paciente de los Imames, en especial de Husein, les otorga el derecho a interceder por los creyentes en el más allá.
+      <cite>Mahmoud Ayoub · Redemptive Suffering in Islam (1978)</cite>
+    </blockquote>
+
+    <p>De esta visión nace la doctrina de la <em>shafa'a</em> (intercesión): el llanto por Husein, la peregrinación a su santuario, la conmemoración de su sufrimiento, conectan al creyente con el mártir y participan de la salvación. El propio Imam Ja'far al-Sadiq, sexto Imam, habría llorado escuchando elegías por su antepasado.</p>
+
+    <p>La frase «<em>Cada día es Ashura, cada tierra es Karbala</em>» (<em>kullu yawmin Ashura, kullu ardin Karbala</em>) —aunque su atribución hadicia es discutida— resume la lectura espiritual: la lucha de Husein contra la tiranía es perpetua y se libra cada día, en cada lugar donde un creyente se opone a la injusticia.</p>
+
+    <p>El santuario de Husein en Karbala se ha convertido en uno de los lugares más sagrados del chiísmo, junto con la tumba de Ali en Najaf. La <em>turba</em>, tierra extraída de Karbala, se usa para fabricar las pequeñas tablillas sobre las que muchos chiíes apoyan la frente durante la oración. La peregrinación de los cuarenta días (Arbaeen) es hoy la mayor reunión religiosa anual del mundo.</p>
+  </div>
+
+  <div class="tab-panel prose" id="panel-sunni" role="tabpanel" hidden>
+    <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-primary); margin-bottom: 1rem;">El nieto del Profeta, una tragedia evitable</h3>
+    <p>La tradición suní —mayoritaria en el mundo musulmán— venera a Husein con profundo respeto, sin atribuirle, sin embargo, las implicaciones doctrinales chiíes. Husein es nieto del Profeta, uno de los «<em>sayyidayn shabab ahl al-janna</em>» (los dos señores de los jóvenes del Paraíso), y su asesinato es considerado una de las grandes calamidades de la historia islámica.</p>
+
+    <p>La diferencia central está en la lectura del acontecimiento. Para el suní, los hechos de Karbala son una tragedia humana producto de la ambición política y la traición de los kufíes, no un drama cósmico de redención. Husein actuó por principios y fue víctima de un crimen, pero no muere como sacrificio expiatorio: no hay teología de intercesión asociada.</p>
+
+    <p>La cuestión más debatida internamente es la actitud hacia <strong>Yazid</strong>. Existen varias posturas:</p>
+
+    <ul style="margin: 1.5rem 0 1.5rem 1.5rem; line-height: 1.8; color: var(--text-body);">
+      <li><strong>Maldición permitida.</strong> El imam Ahmad ibn Hanbal lo habría considerado merecedor de maldición. Ibn al-Jawzi al-Hanbali (m. 1200) escribió una obra completa, <em>Refutación del fanático obstinado que impide censurar a Yazid</em>, defendiendo expresamente esta postura.</li>
+      <li><strong>Abstención cautelosa.</strong> Al-Ghazali (m. 1111), en su <em>Ihyaʾ ʿUlum al-Din</em>, prohibió maldecir a Yazid argumentando que no está probado que ordenara directamente la muerte de Husein, y que acusar a un musulmán sin pruebas es ilícito.</li>
+      <li><strong>Condena del crimen sin defender a Yazid.</strong> La mayoría de los ulemas suníes condena el asesinato. Al-Suyuti, en <em>Tarikh al-Khulafa'</em>, maldice a Sinan, a Ibn Ziyad y al propio Yazid. Ibn Kathir encuadra el episodio como una <em>fitna</em> evitable.</li>
+    </ul>
+
+    <p>En el mundo suní contemporáneo —especialmente en las corrientes barelvi del sur de Asia y en círculos sufíes— la conmemoración de Husein es vivida con intensidad, aunque sin las formas extremas del luto chií. Ashura sigue siendo recordada, aunque también como el día en que el profeta Musa (Moisés) atravesó el mar Rojo, según un hadiz transmitido por al-Bujari, y muchos suníes ayunan ese día por otros motivos distintos a los chiíes.</p>
+
+    <p>Calificar Karbala de «batalla suní-chií», por tanto, sería un error histórico: la veneración por Husein es mayoritariamente compartida; solo un puñado de figuras controvertidas defiende a Yazid.</p>
+  </div>
+
+  <div class="tab-panel prose" id="panel-academic" role="tabpanel" hidden>
+    <h3 style="font-family: var(--font-display); font-size: 1.6rem; color: var(--text-primary); margin-bottom: 1rem;">El «big bang» del chiísmo</h3>
+    <p>La historiografía académica del siglo XX y XXI ha producido un cuerpo notable de estudios sobre Karbala, especialmente desde el islamólogo Julius Wellhausen, que en 1901 publicó un análisis pionero sobre la oposición religioso-política en el primer islam. Los nombres clave son:</p>
+
+    <p><strong>Wilferd Madelung</strong>, en <em>The Succession to Muhammad: A Study of the Early Caliphate</em> (Cambridge UP, 1997), defiende —en contra de la tendencia académica previa— la legitimidad temprana de la reclamación sucesoria de la familia del Profeta, argumentando que el Corán pone enorme énfasis en los lazos de parentesco y que el principio hereditario era común en la época. Su análisis es decisivo para entender Karbala como expresión de un conflicto sucesorio largamente fermentado.</p>
+
+    <blockquote class="perspective-quote">
+      No había aspecto religioso en el chiísmo antes del 680. La muerte del tercer Imam y sus seguidores marcó el «big bang» que creó el universo en rápida expansión del chiísmo y lo puso en movimiento.
+      <cite>Heinz Halm · Shia Islam: From Religion to Revolution (1997)</cite>
+    </blockquote>
+
+    <p><strong>S.H.M. Jafri</strong>, en <em>The Origins and Early Development of Shi'a Islam</em> (Longman/Oxford, 1979), identifica tres acontecimientos pivotales: la Saqifa de Banu Sa'ida (la asamblea que eligió a Abu Bakr), Karbala y la Gran Ocultación del Duodécimo Imam. Sostiene que «la segunda etapa del desarrollo del chiísmo comenzó con el martirio del Imam al-Husein», que marcó «el advenimiento del chiísmo como movimiento religioso divergente del cuerpo principal de creyentes».</p>
+
+    <p><strong>Mahmoud Ayoub</strong>, en <em>Redemptive Suffering in Islam: A Study of the Devotional Aspects of ʿAshuraʾ in Twelver Shiʿism</em> (Mouton, 1978), analiza los aspectos devocionales con un marco comparativo cristiano —el sufrimiento redentor de Husein como análogo, no idéntico, a la pasión de Cristo—.</p>
+
+    <p><strong>Yitzhak Nakash</strong>, en <em>The Shi'is of Iraq</em> (Princeton UP, 1994) y en su artículo <em>An Attempt to Trace the Origin of the Rituals of Ashura</em> (Die Welt des Islams, 1993), argumenta que los grandes rituales de Ashura no son contemporáneos del acontecimiento sino que se desarrollaron gradualmente: las primeras procesiones públicas documentadas datan del Bagdad buyí, año 963 d.C.</p>
+
+    <p>Sobre la <strong>historicidad de las fuentes</strong>, existe consenso amplio en que hay un núcleo histórico fiable (la batalla, su fecha, los actores principales, la muerte de Husein con unos setenta y dos compañeros) recuperable a través del <em>Maqtal al-Husayn</em> de Abu Mikhnaf, transmitido por al-Tabari y al-Baladhuri. Sobre ese núcleo se superpusieron capas progresivamente hagiográficas: prodigios cósmicos en el momento de la muerte, llanto del cielo, milagros previos. Erling Petersen y otros han sostenido que Abu Mikhnaf, al menos en parte, transmite testimonio de contemporáneos. Wellhausen, en cambio, sospechaba que los transmisores kufíes, arrepentidos, embellecieron los relatos para mitigar su propia culpa.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FUENTES HISTÓRICAS
+     ═══════════════════════════════════════════════════ -->
+<section id="fuentes">
+  <span class="section-eyebrow">Las crónicas</span>
+  <h2 class="section-title">Las fuentes clásicas del <em>martirio</em></h2>
+  <p class="section-intro">Doce obras —desde el siglo II hasta el XII de la Hégira— constituyen la base textual sobre la que se ha construido todo lo que sabemos.</p>
+
+  <div class="sources-grid">
+
+    <div class="source-card">
+      <div class="source-date">Siglo II H · 770 d.C.</div>
+      <div class="source-title">Maqtal al-Husayn</div>
+      <div class="source-author">Abu Mikhnaf (Lut ibn Yahya al-Azdi)</div>
+      <p class="source-desc">La fuente más antigua, escrita unos 77 años después de los hechos por un kufí pro-alida que recogió relatos orales de informantes, algunos supervivientes. El texto original se perdió pero sobrevive en fragmentos a través de al-Tabari.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo III H · 838 d.C.</div>
+      <div class="source-title">Kitab al-Tabaqat al-Kubra</div>
+      <div class="source-author">Ibn Sa'd</div>
+      <p class="source-desc">Diccionario biográfico monumental con un volumen dedicado a Husein. Una de las primeras síntesis con cierta distancia de los hechos.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo III H · 894 d.C.</div>
+      <div class="source-title">Ansab al-Ashraf</div>
+      <div class="source-author">al-Baladhuri</div>
+      <p class="source-desc">Cita a Abu Mikhnaf «invariablemente como fuente definitiva», según el historiador Erling Petersen. Junto con al-Tabari, vehículo principal del relato original.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo III H · 891 d.C.</div>
+      <div class="source-title">al-Akhbar al-Tiwal</div>
+      <div class="source-author">al-Dinawari</div>
+      <p class="source-desc">Crónica histórica de origen persa con tratamiento detallado del primer siglo islámico.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo IV H · 923 d.C.</div>
+      <div class="source-title">Tarikh al-Rusul wa-l-Muluk</div>
+      <div class="source-author">Muhammad ibn Yarir al-Tabari</div>
+      <p class="source-desc">Historia de los Profetas y los Reyes. Transmite la mayor parte del relato de Abu Mikhnaf. Es la fuente única más importante para Karbala. Escrita por un suní que conservó los relatos sin manipularlos doctrinalmente.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo IV H · c. 967 d.C.</div>
+      <div class="source-title">Maqatil al-Talibiyyin</div>
+      <div class="source-author">Abu al-Faraj al-Isfahani</div>
+      <p class="source-desc">«Las muertes violentas de los descendientes de Abu Talib» — catálogo sistemático de los descendientes del clan martirizados, escrito por un autor de simpatías zaidíes.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo V H · 1022 d.C.</div>
+      <div class="source-title">Kitab al-Irshad</div>
+      <div class="source-author">al-Shaykh al-Mufid</div>
+      <p class="source-desc">Biografía sistemática de los doce Imames. La referencia chií clásica, todavía usada como base por oradores de <em>majlis</em>. Aporta detalles narrativos finos, como la muerte de Abbas.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo VII H · 1233 d.C.</div>
+      <div class="source-title">al-Kamil fi'l-Tarikh</div>
+      <div class="source-author">Ibn al-Athir</div>
+      <p class="source-desc">«La completa en historia». Síntesis enciclopédica que organiza el material previo de al-Tabari y otros. Lectura suní de los acontecimientos.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo VII H · c. 1260 d.C.</div>
+      <div class="source-title">al-Luhuf ʿala Qatla al-Tufuf</div>
+      <div class="source-author">Ibn Tawus</div>
+      <p class="source-desc">Conocido simplemente como <em>Luhoof</em>. Relato chií conmovedor en tres partes —antes de Ashura, el día mismo, y después— que enfatiza el conocimiento previo de Husein de su destino. Texto central en la liturgia del luto.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo VIII H · 1373 d.C.</div>
+      <div class="source-title">al-Bidaya wa-l-Nihaya</div>
+      <div class="source-author">Ibn Kathir</div>
+      <p class="source-desc">«El principio y el fin». Historia universal desde la creación. Lectura suní tradicional, que condena el asesinato sin atribuir teología sacrificial al martirio.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo IX H · 1469 d.C.</div>
+      <div class="source-title">Rawdat al-Shuhada</div>
+      <div class="source-author">Husayn Waʿiz Kashifi</div>
+      <p class="source-desc">«El jardín de los mártires». Obra en persa que dio origen al verbo turco-persa <em>rouzeh-khan</em> (recitar Karbala) y al género del relato lacrimógeno.</p>
+    </div>
+
+    <div class="source-card">
+      <div class="source-date">Siglo XII H · 1698 d.C.</div>
+      <div class="source-title">Bihar al-Anwar</div>
+      <div class="source-author">Allama Muhammad Baqir Majlisi</div>
+      <p class="source-desc">«Mares de luces». Enciclopedia hadicia monumental en 110 volúmenes. Recoge la mayor parte de los dichos atribuidos a Husein y Zaynab y de los relatos devocionales tardíos sobre Karbala.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- divisor -->
+<div class="ornament-divider" aria-hidden="true">
+  <svg class="ornament" viewBox="0 0 60 60" style="color: var(--gold-primary);">
+    <g fill="none" stroke="currentColor" stroke-width="1">
+      <circle cx="30" cy="30" r="20"/>
+      <path d="M30 10 L40 30 L30 50 L20 30 Z"/>
+      <path d="M10 30 L30 20 L50 30 L30 40 Z"/>
+    </g>
+  </svg>
+</div>
+
+<!-- ═══════════════════════════════════════════════════
+     CONMEMORACIÓN
+     ═══════════════════════════════════════════════════ -->
+<section id="conmemoracion">
+  <span class="section-eyebrow">El luto y la memoria</span>
+  <h2 class="section-title">Cómo se <em>recuerda</em> Karbala</h2>
+  <p class="section-intro">La memoria de Karbala se ha cristalizado a lo largo de catorce siglos en una red densa de prácticas rituales, dramáticas, literarias y arquitectónicas que sostienen viva la experiencia del acontecimiento.</p>
+
+  <div class="chapter-illustration reveal">
+    <img src="/img/peregrinacion.png" alt="La peregrinación de Arbaeen" loading="lazy">
+    <div class="chapter-illustration-caption">La peregrinación a pie hacia Karbala durante el Arbaeen reúne anualmente a decenas de millones de fieles de todo el mundo.</div>
+  </div>
+
+  <div class="commemoration-grid">
+
+    <article class="commemoration-block">
+      <h4>Ashura</h4>
+      <span class="ar">عاشوراء</span>
+      <p>El décimo día del mes de Muharram, aniversario del martirio. Se realizan procesiones públicas, recitación de las narraciones (<em>maqtal</em>), poemas elegíacos, golpes en el pecho (<em>latm</em>) y oraciones. En Irán es día festivo nacional. En el sur de Asia se acompaña de réplicas en miniatura del santuario llamadas <em>taziya</em>.</p>
+    </article>
+
+    <article class="commemoration-block">
+      <h4>Arbaeen</h4>
+      <span class="ar">الأربعين</span>
+      <p>Cuarenta días después de Ashura. Origen de la mayor peregrinación a pie del mundo: millones de personas caminan los 80 km que separan Najaf de Karbala. Según el santuario de al-Abbas, en 2024 fue récord, con más de 22 millones de peregrinos. Prohibida bajo Saddam Hussein, resurgió tras 2003.</p>
+    </article>
+
+    <article class="commemoration-block">
+      <h4>Ta'ziyeh</h4>
+      <span class="ar">تعزية</span>
+      <p>Teatro pasional iraní —considerado la única forma dramática indígena del mundo islámico— que reescenifica los hechos de Karbala. Tiene raíces en tradiciones preislámicas iraníes (el duelo por Siyavash del <em>Shahnameh</em>). La colección Cerulli de la Biblioteca Apostólica Vaticana conserva más de mil manuscritos de ta'ziyeh.</p>
+    </article>
+
+    <article class="commemoration-block">
+      <h4>Majlis</h4>
+      <span class="ar">مجلس</span>
+      <p>Asamblea de luto en la que un orador (<em>khatib</em> o <em>rouzeh-khan</em>) recita los relatos de Karbala provocando el llanto de los asistentes. Es la institución oral más importante del chiísmo popular; ha alimentado siglos de poesía elegíaca en árabe (<em>marathi</em>), persa, urdu, sindhi y otras lenguas.</p>
+    </article>
+
+    <article class="commemoration-block">
+      <h4>Matam</h4>
+      <span class="ar">ماتم</span>
+      <p>Prácticas de luto corporal. Las formas suaves (<em>sina-zani</em>, golpear el pecho con la mano) son universales. Las formas extremas (<em>tatbir</em>, autoflagelación con cuchillas) son controvertidas: el ayatolá Jamenei las prohibió por <em>fatwa</em> en 1994; Hezbolá las desaconseja desde la misma época. Hoy se promueve la donación de sangre como alternativa.</p>
+    </article>
+
+    <article class="commemoration-block">
+      <h4>Husseiniya</h4>
+      <span class="ar">حسينية</span>
+      <p>Espacio comunitario dedicado específicamente a las ceremonias de luto por Husein (también llamado <em>imambargah</em> en el subcontinente indio o <em>tekiyeh</em> en Irán). Diferente de la mezquita, suele estar abierto a la calle durante las procesiones y alberga las recitaciones del <em>majlis</em>.</p>
+    </article>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     LEGADO
+     ═══════════════════════════════════════════════════ -->
+<section id="legado">
+  <span class="section-eyebrow">El legado político</span>
+  <h2 class="section-title">Karbala como <em>símbolo universal</em> de resistencia</h2>
+
+  <div class="legacy-grid">
+    <div class="legacy-stats">
+
+      <div class="legacy-stat">
+        <div class="legacy-stat-number">22,1M <small>peregrinos</small></div>
+        <div class="legacy-stat-label">Arbaeen 2024</div>
+        <div class="legacy-stat-desc">La mayor reunión religiosa anual del planeta, según datos del santuario al-Abbas en Karbala.</div>
+      </div>
+
+      <div class="legacy-stat">
+        <div class="legacy-stat-number">1979 <small>Irán</small></div>
+        <div class="legacy-stat-label">Revolución Islámica</div>
+        <div class="legacy-stat-desc">Jomeini comparó al Shah con Yazid en 1963. El paradigma de Karbala fue el marco moral que cuestionó la legitimidad de la dinastía Pahlavi.</div>
+      </div>
+
+      <div class="legacy-stat">
+        <div class="legacy-stat-number">14 <small>siglos</small></div>
+        <div class="legacy-stat-label">de conmemoración</div>
+        <div class="legacy-stat-desc">Las primeras procesiones públicas documentadas datan del Bagdad buyí en 963 d.C. La memoria ininterrumpida llega hasta hoy.</div>
+      </div>
+
+      <div class="legacy-stat">
+        <div class="legacy-stat-number">3 <small>revueltas</small></div>
+        <div class="legacy-stat-label">en una década</div>
+        <div class="legacy-stat-desc">Tawwabin (684), Mukhtar (685–687), e Ibn al-Zubayr. Karbala detonó la Segunda Fitna y, con ella, la diferenciación definitiva del chiísmo.</div>
+      </div>
+
+    </div>
+
+    <div class="prose">
+      <p>Las consecuencias inmediatas fueron políticas. En 684, apenas tres años después del martirio, un grupo de kufíes arrepentidos por no haber socorrido a Husein —los <strong>Tawwabin</strong> o «Penitentes»— se lanzó al desierto al grito de «<em>¡Oh, vengadores de Husein!</em>». Liderados por Sulayman ibn Surad, compañero del Profeta, fueron aniquilados en la batalla de Ayn al-Warda en enero de 685, pero su movimiento sembró la semilla.</p>
+
+      <p>Poco después, <strong>Mukhtar al-Thaqafi</strong> tomó Kufa en octubre de 685 enarbolando el mismo lema de venganza y abogando por un califato alida en nombre de Muhammad ibn al-Hanafiyya, hermanastro de Husein. Su general Ibrahim ibn al-Ashtar derrotó a los omeyas en la batalla de Khazir en 686, matando a Ubayd-Allah ibn Ziyad. Mukhtar ejecutó a casi todos los participantes principales en Karbala: Umar ibn Sa'd, Shimr, Khawli, Sinan. Su movimiento fracasó políticamente en 687 pero sobrevivió en la secta <em>kaysaní</em>, que introdujo el concepto de Mahdi que influiría decisivamente en el chiísmo posterior.</p>
+
+      <p>A largo plazo, sin embargo, lo más importante fue la <strong>transformación simbólica</strong>. Karbala dejó de ser un episodio histórico para convertirse en un esquema interpretativo, un «paradigma» —según el antropólogo Michael Fischer— a través del cual los chiíes han leído sus propias circunstancias políticas durante catorce siglos. Cada tirano puede ser un Yazid. Cada resistencia puede ser una Karbala.</p>
+
+      <p>En 1963, cuando el ayatolá Ruhollah Jomeini denunció al Shah Mohammad Reza Pahlavi desde el púlpito de Qom, lo llamó «el Yazid de su tiempo». La imagen prendió. En 1978-79, durante la Revolución Islámica, los manifestantes iraníes salieron a las calles en Muharram convertidos en mártires conscientes que reescenificaban Karbala. Pensadores como Ali Shariati reinterpretaron el martirio de Husein como modelo de lucha revolucionaria activa, frente al quietismo lacrimógeno tradicional.</p>
+
+      <p>El símbolo trascendió incluso las fronteras del islam. A Mahatma Gandhi se le atribuye —aunque la cita no figura en sus <em>Collected Works</em>— la frase: «<em>Aprendí de Husein cómo lograr la victoria siendo oprimido.</em>» El historiador escocés Sir William Muir, el novelista Charles Dickens y el filósofo Thomas Carlyle escribieron páginas admirativas sobre el episodio. En todas estas voces resuena una intuición común: que un hombre solo, frente a un imperio, eligiendo morir antes que mentir, había abierto en la historia una ventana que ninguna fuerza posterior ha logrado cerrar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer-arabic">إنا لله وإنا إليه راجعون</div>
+  <div class="footer-title">«No he visto sino belleza»</div>
+  <p style="font-family: var(--font-display); font-style: italic; color: var(--text-muted); max-width: 50ch; margin: 0 auto;">— Atribuido a Zaynab bint Ali tras Karbala</p>
+  <div class="footer-meta">
+    Documento histórico-religioso · Fuentes citadas en sección «Fuentes» · 1446 H / 2026 d.C.
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ── Toggle del menú móvil ── */
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* ── Tabs de perspectivas ── */
+  const tabs = document.querySelectorAll('.tab');
+  const panels = document.querySelectorAll('.tab-panel');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.tab;
+      tabs.forEach(t => {
+        t.classList.toggle('active', t === tab);
+        t.setAttribute('aria-selected', t === tab);
+      });
+      panels.forEach(p => {
+        const isActive = p.id === `panel-${target}`;
+        p.classList.toggle('active', isActive);
+        if (isActive) { p.removeAttribute('hidden'); } else { p.setAttribute('hidden', ''); }
+      });
+    });
+  });
+
+  /* ── IntersectionObserver para revelar timeline ── */
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.timeline-item, .reveal').forEach(el => observer.observe(el));
+  } else {
+    // fallback sin IO
+    document.querySelectorAll('.timeline-item, .reveal').forEach(el => el.classList.add('visible'));
+  }
+
+  /* ── Nav hide on scroll down, show on scroll up ── */
+  let lastScroll = 0;
+  const nav = document.querySelector('.nav');
+  window.addEventListener('scroll', () => {
+    const current = window.scrollY;
+    if (current > 200 && current > lastScroll) {
+      nav.style.transform = 'translateY(-100%)';
+    } else {
+      nav.style.transform = 'translateY(0)';
+    }
+    lastScroll = current;
+  }, { passive: true });
+
+})();
+</script>
+</body>
+</html>
