@@ -26,3 +26,6 @@ env/
 .DS_Store
 Thumbs.db
 [Dd]esktop.ini
+
+*.mp4
+*.webm

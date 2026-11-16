@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎬 Vídeo Final</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --yellow:       #F5C842;
+      --yellow-light: #FDE88A;
+      --yellow-dark:  #D4A820;
+      --pink:         #F2708A;
+      --pink-light:   #FAB0C0;
+      --pink-dark:    #C94E68;
+      --cream:        #FFF8ED;
+      --ink:          #2A1A1F;
+      --ink-soft:     #6B4A55;
+      --white:        #FFFFFF;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --transition:   .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--ink);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(42,26,31,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245,200,66,.15);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__back {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--yellow-light);
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .nav__back:hover { transform: translateX(-4px); color: var(--yellow); }
+    .nav__title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--white);
+    }
+
+    /* HERO */
+    .video-hero {
+      text-align: center;
+      padding: 5rem 2rem 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .video-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(245,200,66,.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .video-hero .eyebrow {
+      display: inline-block;
+      font-size: .82rem;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--yellow);
+      background: rgba(245,200,66,.1);
+      border: 1px solid rgba(245,200,66,.2);
+      border-radius: 100px;
+      padding: .4rem 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+    .video-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 1rem;
+    }
+    .video-hero h1 em {
+      color: var(--yellow-light);
+      font-style: italic;
+      font-weight: 400;
+      display: block;
+    }
+    .video-hero p {
+      color: rgba(255,255,255,.6);
+      font-size: 1.05rem;
+      font-weight: 300;
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* VIDEO CONTAINER */
+    .video-stage {
+      max-width: 920px;
+      margin: 3rem auto 2rem;
+      padding: 0 2rem;
+    }
+
+    /* ── OPCIÓN A: Vídeo ya subido al servidor ── */
+    .video-embed {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #000;
+      box-shadow:
+        0 0 0 1px rgba(245,200,66,.15),
+        0 32px 80px rgba(0,0,0,.6);
+      animation: fadeUp .8s .2s both;
+    }
+    .video-embed video {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16/9;
+      border-radius: 20px;
+    }
+
+    /* Borde brillante */
+    .video-embed::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 21px;
+      background: linear-gradient(135deg, var(--yellow), var(--pink), transparent, var(--yellow));
+      background-size: 200% 200%;
+      animation: borderShimmer 4s ease infinite;
+      z-index: -1;
+    }
+    @keyframes borderShimmer {
+      0%,100% { background-position: 0% 50%; }
+      50%      { background-position: 100% 50%; }
+    }
+
+    /* ── OPCIÓN B: Drop zone para subir ── */
+    .drop-zone {
+      border: 2px dashed rgba(245,200,66,.3);
+      border-radius: 20px;
+      padding: 5rem 2rem;
+      text-align: center;
+      cursor: pointer;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      animation: fadeUp .8s .2s both;
+    }
+    .drop-zone:hover, .drop-zone.drag-over {
+      border-color: var(--yellow);
+      background: rgba(245,200,66,.05);
+    }
+    .drop-zone input[type="file"] {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+    }
+    .drop-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      display: block;
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+    .drop-zone h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin-bottom: .5rem;
+      color: var(--white);
+    }
+    .drop-zone p {
+      color: rgba(255,255,255,.45);
+      font-size: .9rem;
+    }
+    .drop-zone .browse-btn {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: linear-gradient(135deg, var(--yellow), var(--yellow-dark));
+      color: var(--ink);
+      font-weight: 600;
+      font-size: .9rem;
+      padding: .7rem 1.8rem;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition);
+      pointer-events: none;
+    }
+    .drop-zone:hover .browse-btn { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(245,200,66,.35); }
+
+    @keyframes floatIcon {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+
+    /* Preview tras subir */
+    #video-preview-wrap {
+      display: none;
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,.6);
+      animation: fadeUp .5s ease both;
+    }
+    #video-preview-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 21px;
+      background: linear-gradient(135deg, var(--yellow), var(--pink));
+      z-index: -1;
+    }
+    #video-preview {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+    }
+    .preview-controls {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+    .preview-controls button {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.7);
+      border-radius: 100px;
+      padding: .5rem 1.2rem;
+      font-family: var(--font-body);
+      font-size: .85rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .preview-controls button:hover { background: rgba(255,255,255,.15); color: var(--white); }
+
+    /* INFO BLOCK */
+    .video-info {
+      max-width: 920px;
+      margin: 2.5rem auto 6rem;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      animation: fadeUp .8s .4s both;
+    }
+    .info-card {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 16px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    .info-card__icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+    .info-card__text h4 {
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--yellow-light);
+      margin-bottom: .25rem;
+    }
+    .info-card__text p {
+      font-size: .85rem;
+      color: rgba(255,255,255,.45);
+      line-height: 1.6;
+    }
+
+    /* Instructions */
+    .server-hint {
+      max-width: 920px;
+      margin: 0 auto 2rem;
+      padding: 0 2rem;
+    }
+    .server-hint .hint-box {
+      background: rgba(245,200,66,.06);
+      border: 1px dashed rgba(245,200,66,.25);
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      font-size: .85rem;
+      color: rgba(255,255,255,.5);
+      line-height: 1.7;
+    }
+    .server-hint code {
+      background: rgba(245,200,66,.12);
+      color: var(--yellow);
+      padding: .1rem .4rem;
+      border-radius: 4px;
+      font-size: .8rem;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav__back" href="../index.html">← Volver</a>
+    <span class="nav__title">El vídeo final</span>
+    <span style="font-size:1.4rem">🎬</span>
+  </nav>
+
+  <header class="video-hero">
+    <div class="eyebrow">✨ Para Rania ✨</div>
+    <h1>Nuestros recuerdos<br/><em>en movimiento</em></h1>
+    <p>Porque hay momentos que merecen más que una foto. Aquí está todo, en vídeo.</p>
+  </header>
+
+  <div class="video-stage" id="video-stage">
+
+    <!-- ══════════════════════════════════════════════════════════
+         OPCIÓN A — Si ya tienes el vídeo en el servidor:
+         1. Comenta el bloque #drop-zone-wrap (o bórralo)
+         2. Descomenta el bloque .video-embed de abajo
+         3. Cambia la src por la ruta a tu vídeo
+    ════════════════════════════════════════════════════════════ -->
+
+    <div class="video-embed">
+      <video controls preload="metadata" poster="img/video-poster.jpg">
+        <source src="/img/videoCumple.mp4" type="video/mp4" />
+        Tu navegador no soporta el elemento vídeo.
+      </video>
+    </div>
+
+    <!-- Preview -->
+    <div id="video-preview-wrap">
+      <video id="video-preview" controls></video>
+      <div class="preview-controls">
+        <button onclick="resetVideo()">✕ Cambiar vídeo</button>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="video-info">
+    <div class="info-card">
+      <div class="info-card__icon">🎞️</div>
+      <div class="info-card__text">
+        <h4>Cada segundo cuenta</h4>
+        <p>Recopilados de todos los rincones donde estuvimos juntos.</p>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card__icon">🎵</div>
+      <div class="info-card__text">
+        <h4>Con nuestra música</h4>
+        <p>La banda sonora de todos esos momentos que nunca olvidaré.</p>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-card__icon">💛</div>
+      <div class="info-card__text">
+        <h4>Hecho con amor</h4>
+        <p>Cada corte, cada clip, pensando en ti y en lo que significas.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const dropZone    = document.getElementById('dropZone');
+    const videoInput  = document.getElementById('videoInput');
+    const previewWrap = document.getElementById('video-preview-wrap');
+    const preview     = document.getElementById('video-preview');
+    const dropWrap    = document.getElementById('drop-zone-wrap');
+
+    function loadVideo(file) {
+      if (!file || !file.type.startsWith('video/')) return;
+      const url = URL.createObjectURL(file);
+      preview.src = url;
+      dropWrap.style.display = 'none';
+      previewWrap.style.display = 'block';
+    }
+
+    videoInput.addEventListener('change', e => loadVideo(e.target.files[0]));
+
+    dropZone.addEventListener('dragover', e => {
+      e.preventDefault();
+      dropZone.classList.add('drag-over');
+    });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      dropZone.classList.remove('drag-over');
+      loadVideo(e.dataTransfer.files[0]);
+    });
+
+    function resetVideo() {
+      preview.pause();
+      preview.src = '';
+      URL.revokeObjectURL(preview.src);
+      previewWrap.style.display = 'none';
+      dropWrap.style.display = 'block';
+      videoInput.value = '';
+    }
+  </script>
+
+</body>
+</html>

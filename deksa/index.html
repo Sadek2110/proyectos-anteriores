@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎂 ¡Feliz Cumpleaños!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ░░ HERO / MAIN ░░ -->
+  <section class="hero" id="home">
+    <div class="hero__overlay"></div>
+    <div class="hero__confetti" id="confetti-container"></div>
+
+    <div class="hero__content">
+      <span class="hero__eyebrow">✨ Te amo para siempre ✨</span>
+      <h1 class="hero__title">¡Feliz Cumpleaños!<br /><em>Rania</em></h1>
+      <p class="hero__subtitle">Eres lo mejor que me ha pasado, ojala te lo pases bien viendo todo</p>
+      <a href="#sections" class="hero__cta">Explorar nuestro amor</a>
+    </div>
+
+    <div class="hero__scroll-hint">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ░░ SECTION CARDS ░░ -->
+  <section class="sections" id="sections">
+    <div class="sections__header">
+      <h2>Elige tu <em>momento</em></h2>
+      <p>Tres formas de vivir tu cumple</p>
+    </div>
+
+    <div class="cards">
+
+      <article class="card" data-section="galeria">
+        <div class="card__number">01</div>
+        <div class="card__icon">📸</div>
+        <h3 class="card__title">Album<br />de fotos</h3>
+        <p class="card__desc">Se que quieres un album en fisico pero bueno algo es algo espero que te guste.</p>
+        <button class="card__btn" onclick="openSection('galeria')">Ver album →</button>
+        <div class="card__deco"></div>
+      </article>
+
+      <article class="card card--featured" data-section="deseos">
+        <div class="card__number">02</div>
+        <div class="card__icon">💌</div>
+        <h3 class="card__title">Carta<br />de amor</h3>
+        <p class="card__desc">Y la carta te la iva a dar en persona pero digital mejor, asi no tiene celo.</p>
+        <button class="card__btn" onclick="openSection('deseos')">Leer carta →</button>
+        <div class="card__deco"></div>
+      </article>
+
+      <article class="card" data-section="programa">
+        <div class="card__number">03</div>
+        <div class="card__icon">🎉</div>
+        <h3 class="card__title">Video<br />Final</h3>
+        <p class="card__desc">Y bueno dicen que una imagen vale mas que mil palabras, pero con mil no bastan.</p>
+        <button class="card__btn" onclick="openSection('programa')">Ver vídeo →</button>
+        <div class="card__deco"></div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="footer__cake">🎂</span>
+        <p class="footer__name">Un día para recordar siempre</p>
+      </div>
+
+      <div class="footer__links">
+        <a href="#home">Inicio</a>
+        <a href="#sections">Secciones</a>
+        <a href="carta.html">Dejar mensaje</a>
+      </div>
+
+      <p class="footer__copy">Hecho con amor por Deksa © 2025</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💌 Carta para Rania</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Satisfy&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --yellow:       #F5C842;
+      --yellow-light: #FDE88A;
+      --pink:         #F2708A;
+      --pink-light:   #FAB0C0;
+      --pink-dark:    #C94E68;
+      --cream:        #FFF8ED;
+      --ink:          #2A1A1F;
+      --ink-soft:     #6B4A55;
+      --paper:        #FEF9EF;
+      --paper-line:   rgba(180,140,120,.18);
+      --font-letter:  'Cormorant Garamond', Georgia, serif;
+      --font-script:  'Satisfy', cursive;
+      --font-ui:      'DM Sans', system-ui, sans-serif;
+      --transition:   .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-ui);
+      background: #F5EBD8;
+      background-image:
+        radial-gradient(ellipse at 20% 20%, rgba(245,200,66,.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(242,112,138,.12) 0%, transparent 60%);
+      min-height: 100vh;
+      color: var(--ink);
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(254,249,239,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245,200,66,.25);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__back {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--pink-dark);
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .nav__back:hover { transform: translateX(-4px); }
+    .nav__title { font-family: var(--font-script); font-size: 1.4rem; color: var(--ink); }
+
+    /* SCENE */
+    .scene {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 4rem 2rem 6rem;
+      perspective: 1200px;
+    }
+
+    /* ENVELOPE */
+    .envelope-wrap {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.5rem;
+      width: 100%;
+      max-width: 680px;
+    }
+
+    /* Sello decorativo */
+    .stamp-area {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      opacity: .7;
+      font-size: .8rem;
+      color: var(--ink-soft);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .stamp {
+      width: 48px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--yellow), var(--pink));
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: inset 0 0 0 3px rgba(255,255,255,.4), 0 2px 8px rgba(0,0,0,.15);
+      position: relative;
+    }
+    .stamp::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border: 2px dashed rgba(255,255,255,.5);
+      border-radius: 6px;
+    }
+
+    /* PAPER / CARTA */
+    .letter {
+      width: 100%;
+      background: var(--paper);
+      border-radius: 4px 4px 4px 4px;
+      box-shadow:
+        0 2px 0 rgba(180,140,120,.3),
+        0 8px 0 rgba(180,140,120,.2),
+        0 24px 60px rgba(42,26,31,.2),
+        0 2px 4px rgba(0,0,0,.08);
+      position: relative;
+      overflow: hidden;
+      animation: unfold .8s .2s both cubic-bezier(.34,1.56,.64,1);
+      transform-origin: top center;
+    }
+
+    /* Textura de papel */
+    .letter::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        repeating-linear-gradient(
+          transparent 0px,
+          transparent 31px,
+          var(--paper-line) 31px,
+          var(--paper-line) 32px
+        );
+      background-position: 0 48px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Margen izquierdo rosado */
+    .letter::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 3.5rem;
+      bottom: 0;
+      width: 1px;
+      background: rgba(242,112,138,.2);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Esquina doblada */
+    .letter__fold {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 52px 52px 0;
+      border-color: transparent #F5EBD8 transparent transparent;
+      z-index: 2;
+    }
+    .letter__fold::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: -52px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 52px 52px 0;
+      border-color: transparent rgba(180,140,120,.25) transparent transparent;
+    }
+
+    /* Contenido de la carta */
+    .letter__inner {
+      position: relative;
+      z-index: 1;
+      padding: 3rem 3rem 3rem 4.5rem;
+    }
+
+    /* Corazones decorativos en esquinas */
+    .letter__deco-tl {
+      position: absolute;
+      top: 1.2rem;
+      left: 1.2rem;
+      font-size: 1.8rem;
+      opacity: .15;
+      z-index: 0;
+      transform: rotate(-15deg);
+    }
+    .letter__deco-br {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 2rem;
+      font-size: 2.5rem;
+      opacity: .1;
+      z-index: 0;
+      transform: rotate(10deg);
+    }
+
+    /* Membrete / Header */
+    .letter__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(242,112,138,.15);
+      padding-bottom: 1.5rem;
+    }
+    .letter__from {
+      font-family: var(--font-script);
+      font-size: 1.6rem;
+      color: var(--pink);
+      line-height: 1.2;
+    }
+    .letter__date-loc {
+      text-align: right;
+      font-family: var(--font-letter);
+      font-style: italic;
+      font-size: .95rem;
+      color: var(--ink-soft);
+      line-height: 1.8;
+    }
+
+    /* Saludo */
+    .letter__greeting {
+      font-family: var(--font-script);
+      font-size: 2.2rem;
+      color: var(--ink);
+      margin-bottom: 1.8rem;
+      line-height: 1.3;
+    }
+
+    /* Cuerpo */
+    .letter__body {
+      font-family: var(--font-letter);
+      font-size: 1.2rem;
+      line-height: 2;
+      color: #3D2028;
+    }
+    .letter__body p {
+      margin-bottom: 1.5rem;
+      text-align: justify;
+      text-indent: 2em;
+    }
+    .letter__body p:first-child { text-indent: 0; }
+
+    /* Primera letra capitular */
+    .letter__body .drop-cap::first-letter {
+      float: left;
+      font-family: var(--font-script);
+      font-size: 4.5rem;
+      line-height: .7;
+      padding-right: .2rem;
+      margin-top: .1rem;
+      color: var(--pink);
+    }
+
+    /* Firma */
+    .letter__signature {
+      margin-top: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: .3rem;
+    }
+    .letter__sign-label {
+      font-family: var(--font-letter);
+      font-style: italic;
+      font-size: .95rem;
+      color: var(--ink-soft);
+    }
+    .letter__sign-name {
+      font-family: var(--font-script);
+      font-size: 2.8rem;
+      color: var(--pink-dark);
+      line-height: 1;
+    }
+    .letter__postscript {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(242,112,138,.15);
+      font-family: var(--font-letter);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+    .letter__postscript strong {
+      color: var(--pink-dark);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    /* Sticker / Sello de lacre */
+    .wax-seal {
+      width: 72px;
+      height: 72px;
+      background: radial-gradient(circle at 38% 38%, #e8506a, var(--pink-dark) 60%, #8B2B3E);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      box-shadow: 0 4px 16px rgba(201,78,104,.5), inset 0 -2px 6px rgba(0,0,0,.2);
+      position: relative;
+      margin: 0 auto;
+      margin-top: -1.5rem;
+      z-index: 5;
+      animation: sealPop .5s 1s both cubic-bezier(.34,1.56,.64,1);
+    }
+    .wax-seal::before {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,.2);
+    }
+
+    /* Flores decorativas */
+    .petal-row {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      font-size: 1.4rem;
+      opacity: .45;
+      letter-spacing: .3rem;
+      margin-top: .5rem;
+    }
+
+    @keyframes unfold {
+      from { opacity: 0; transform: scaleY(.6) translateY(-20px); }
+      to   { opacity: 1; transform: scaleY(1) translateY(0); }
+    }
+    @keyframes sealPop {
+      from { opacity: 0; transform: scale(0) rotate(-20deg); }
+      to   { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+
+    @media (max-width: 640px) {
+      .letter__inner { padding: 2rem 1.5rem 2rem 2rem; }
+      .letter__header { flex-direction: column; gap: .5rem; }
+      .letter__date-loc { text-align: left; }
+      .letter__body { font-size: 1.1rem; }
+      .letter__greeting { font-size: 1.8rem; }
+      .letter::after { left: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav__back" href="../index.html">← Volver</a>
+    <span class="nav__title">Mi carta para ti</span>
+    <span style="font-size:1.4rem">💌</span>
+  </nav>
+
+  <main class="scene">
+    <div class="envelope-wrap">
+
+      <!-- Sello arriba -->
+      <div class="stamp-area">
+        <div class="stamp">💛</div>
+        <span>Entregado con todo mi amor</span>
+        <div class="stamp">🌸</div>
+      </div>
+
+      <!-- CARTA -->
+      <article class="letter">
+        <div class="letter__fold"></div>
+        <div class="letter__deco-tl">💛</div>
+        <div class="letter__deco-br">🌸</div>
+
+        <div class="letter__inner">
+
+          <!-- Encabezado -->
+          <div class="letter__header">
+            <div class="letter__from">
+              Para Rania,<br/>con todo mi corazón
+            </div>
+            <div class="letter__date-loc">
+              <!-- EDITA: cambia la fecha y lugar -->
+              Domingo 12, Mercadona<br/>
+              4 Abril de 2026
+            </div>
+          </div>
+
+          <!-- Saludo -->
+          <p class="letter__greeting">Mi llorona,</p>
+
+          <!-- ══════════════════════════════════════════════════
+               ✏️  ESCRIBE TU CARTA AQUÍ
+               Edita los párrafos <p> dentro de .letter__body
+               El primer párrafo tiene la letra capital grande.
+          ═══════════════════════════════════════════════════ -->
+          <div class="letter__body">
+
+            <p class="drop-cap">
+              Bueno amor antes que nada hay que explicar el porque de este apartado de la carta si ya te voy a dar una carta en fisico.
+              Pues bueno esta te la he hecho por si alguien te frontea de alguna carta, poder decirle que mi marido me ha hecho una pagina web con
+              la mejor carta del mundo en vez de pensar que las mias van con fiso. Y bueno ahora si que si viene la carta.
+            </p>
+
+            <p>
+              Amor la verdad es que no se ni por donde empezar, mi vida desde que has aparecido en ella me ha cambiado tanto que no tengo ni palabras
+              para darte las gracias. Cunado recuerdo cada momento que hemos pasado juntos, cada tonteria, cada abrazo lleno de lagrimas, cada risas que terminan en lagrimillas
+              en los ojos, cada beso largo que uno querria que no terminase nunca y cada mirada a los ojos que hace que me pierda y me hipnotice pienso que soy la persona mas 
+              afortunada en el mundo entero y que tengo a la mejor mujer del mundo a mi lado.
+            </p>
+
+            <p>
+              Y se que no deberia estar diciendo esto ahora pero enserio aveces tambien me entra miedo de perderte porque se que eres la mejor niña del mundo y que da igual 
+              lo mucho que intente buscar a alguien que se te acerque solo un poco, no lo voy a encontrar. Has hecho que alguien solitario y que le cuesta dar afecto le encante 
+              dar abrazos y estar tardes junto a una persona y la verdad es que nunca crei que eso llegaria a pasar.
+            </p>
+
+            <p>
+              Por eso quiero darte las gracias, enserio, gracias mi vida, gracias por aguantarme, por estar a mi lado siempre que lo he necesitado, por sacarme una sonrisa cuando 
+              cuando no tenia ganas ni de mirarme al espejo, por regalarme los mejores momentos de mi vida y por todos los que quedan, por nunca juzgarme, por hacerme mejor persona 
+              cada dia y lo mas importante, por aperecer en mi vida y salvarla. Eres y siempre vas a ser mi ángel y te voy a estar eternamente agradecido mi vida.
+            </p>
+
+            <p>
+              Hoy no solo es tu cumple, es el recuerdo de todas las cosas que hemos vivido juntos y de que nos faltan muchas cosas por vivir el uno al lado del otro.
+            </p>
+
+            <p>
+              Te amo más de lo que soy capaz de escribir, aunque lo esté intentando con todas
+              mis ganas. Feliz cumpleaños, mi vida.
+            </p>
+
+          </div>
+          <!-- ═══════════════════════════════════════════════ -->
+
+          <!-- P.D. -->
+          <div class="letter__postscript">
+            <strong>P.D.:</strong> Te diria que todo es mentira pero no soy capaz de mentir tanto y tan bien jajajajjajaj, te amo un drk mi corazón 🌸
+          </div>
+
+          <!-- Firma -->
+          <div class="letter__signature">
+            <span class="letter__sign-label">Con todo mi amor, siempre tuyo —</span>
+            <!-- EDITA: pon tu nombre -->
+            <span class="letter__sign-name">Deksa</span>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- Sello de lacre -->
+      <div class="wax-seal">💛</div>
+      <div class="petal-row">🌸 🌷 🌸 🌷 🌸</div>
+
+    </div>
+  </main>
+
+</body>
+</html>

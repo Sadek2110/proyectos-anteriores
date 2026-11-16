@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>📸 Nuestro Álbum</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --yellow:       #F5C842;
+      --yellow-light: #FDE88A;
+      --yellow-dark:  #D4A820;
+      --pink:         #F2708A;
+      --pink-light:   #FAB0C0;
+      --pink-dark:    #C94E68;
+      --cream:        #FFF8ED;
+      --ink:          #2A1A1F;
+      --ink-soft:     #6B4A55;
+      --white:        #FFFFFF;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --transition:   .35s cubic-bezier(.4,0,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,248,237,.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(245,200,66,.25);
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav__back {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .9rem;
+      font-weight: 500;
+      color: var(--pink-dark);
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+    .nav__back:hover { transform: translateX(-4px); color: var(--pink); }
+    .nav__title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-style: italic;
+      color: var(--ink);
+    }
+    .nav__emoji { font-size: 1.4rem; }
+
+    /* HERO ALBUM */
+    .album-hero {
+      background: linear-gradient(135deg, var(--yellow) 0%, var(--pink) 100%);
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .album-hero::before {
+      content: '📸';
+      position: absolute;
+      font-size: 20rem;
+      opacity: .05;
+      top: -4rem;
+      right: -4rem;
+      transform: rotate(15deg);
+      pointer-events: none;
+    }
+    .album-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      color: var(--white);
+      text-shadow: 0 4px 24px rgba(42,26,31,.2);
+      margin-bottom: .6rem;
+    }
+    .album-hero h1 em {
+      display: block;
+      font-style: italic;
+      font-weight: 400;
+    }
+    .album-hero p {
+      color: rgba(255,255,255,.85);
+      font-size: 1.1rem;
+      font-weight: 300;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    /* DAYS TIMELINE */
+    .timeline {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .day-block {
+      margin-bottom: 5rem;
+      animation: fadeUp .6s ease both;
+    }
+
+    /* Day header */
+    .day-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .day-header::after {
+      content: '';
+      position: absolute;
+      left: 3.2rem;
+      top: 100%;
+      width: 1px;
+      height: 2rem;
+      background: linear-gradient(to bottom, var(--pink-light), transparent);
+    }
+    .day-number {
+      flex-shrink: 0;
+      width: 4.5rem;
+      height: 4.5rem;
+      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--white);
+      box-shadow: 0 8px 24px rgba(242,112,138,.35);
+      flex-direction: column;
+      line-height: 1;
+    }
+    .day-number span {
+      font-size: .55rem;
+      font-family: var(--font-body);
+      font-weight: 400;
+      letter-spacing: .05em;
+      opacity: .8;
+      margin-top: .1rem;
+    }
+    .day-info h2 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+    .day-info .day-date {
+      font-size: .85rem;
+      color: var(--pink);
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .3rem;
+    }
+    .day-info p {
+      color: var(--ink-soft);
+      font-size: .95rem;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-top: .4rem;
+      max-width: 520px;
+    }
+
+    /* PHOTO GRID */
+    .photo-grid {
+      display: grid;
+      gap: .75rem;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    }
+
+    /* Featured first item */
+    .photo-grid.has-featured .media-item:first-child {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+
+    .media-item {
+      border-radius: 16px;
+      overflow: hidden;
+      background: linear-gradient(135deg, var(--yellow-light), var(--pink-light));
+      aspect-ratio: 1;
+      position: relative;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 4px 20px rgba(42,26,31,.08);
+    }
+    .media-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 12px 36px rgba(242,112,138,.25);
+      z-index: 2;
+    }
+    .media-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: var(--transition);
+    }
+    .media-item:hover img { transform: scale(1.05); }
+
+    /* Video item */
+    .media-item.is-video {
+      background: linear-gradient(135deg, var(--ink), #4A2A35);
+    }
+    .media-item.is-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .video-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(42,26,31,.35);
+      transition: var(--transition);
+    }
+    .media-item.is-video:hover .video-overlay { background: rgba(42,26,31,.15); }
+    .play-btn {
+      width: 52px;
+      height: 52px;
+      background: rgba(255,255,255,.9);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3);
+      transition: var(--transition);
+    }
+    .media-item.is-video:hover .play-btn { transform: scale(1.15); background: var(--yellow); }
+
+    /* Placeholder items */
+    .media-item.placeholder {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: .4rem;
+      border: 2px dashed rgba(242,112,138,.3);
+      background: rgba(255,255,255,.6);
+      cursor: default;
+    }
+    .placeholder-icon { font-size: 2rem; opacity: .4; }
+    .placeholder-text { font-size: .7rem; color: var(--ink-soft); opacity: .6; text-align: center; padding: 0 .5rem; }
+
+    /* LIGHTBOX */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(42,26,31,.92);
+      backdrop-filter: blur(8px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+      padding: 1.5rem;
+    }
+    .lightbox.is-open {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .lightbox__close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 42px;
+      height: 42px;
+      background: rgba(255,255,255,.12);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox__close:hover { background: var(--pink); }
+    .lightbox__media {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 16px;
+      box-shadow: 0 32px 80px rgba(0,0,0,.5);
+      animation: zoomIn .3s ease both;
+    }
+    .lightbox__nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,.12);
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      color: white;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .lightbox__nav:hover { background: var(--pink); }
+    .lightbox__prev { left: 1rem; }
+    .lightbox__next { right: 1rem; }
+
+    /* INSTRUCTIONS BOX */
+    .instructions {
+      background: linear-gradient(135deg, rgba(245,200,66,.12), rgba(242,112,138,.12));
+      border: 1px dashed rgba(245,200,66,.5);
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 3rem;
+      font-size: .88rem;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+    .instructions strong { color: var(--pink-dark); }
+    .instructions code {
+      background: rgba(242,112,138,.1);
+      padding: .15rem .4rem;
+      border-radius: 4px;
+      font-size: .82rem;
+      color: var(--pink-dark);
+      font-family: monospace;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes zoomIn {
+      from { opacity: 0; transform: scale(.92); }
+      to   { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 640px) {
+      .photo-grid.has-featured .media-item:first-child {
+        grid-column: span 1;
+        grid-row: span 1;
+      }
+      .day-header { gap: 1rem; }
+      .day-number { width: 3.5rem; height: 3.5rem; font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a class="nav__back" href="../index.html">← Volver</a>
+    <span class="nav__title">Nuestros momentos</span>
+    <span class="nav__emoji">📸</span>
+  </nav>
+
+  <header class="album-hero">
+    <h1>Álbum de<br/><em>Recuerdos</em></h1>
+    <p>Cada foto, un latido. Cada día, una historia que siempre llevaremos con nosotros.</p>
+  </header>
+
+  <main class="timeline" id="timeline">
+
+    <!-- Los días se renderizan aquí con JS -->
+    <div id="days-container"></div>
+
+  </main>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox__close" onclick="closeLightbox()">✕</button>
+    <button class="lightbox__nav lightbox__prev" onclick="lightboxNav(-1)">‹</button>
+    <img class="lightbox__media" id="lightbox-img" src="" alt="" style="display:none"/>
+    <video class="lightbox__media" id="lightbox-video" controls style="display:none"></video>
+    <button class="lightbox__nav lightbox__next" onclick="lightboxNav(1)">›</button>
+  </div>
+
+  <script>
+    /* ═══════════════════════════════════════════════════════════
+       EDITA AQUÍ TUS DÍAS Y FOTOS
+       ═══════════════════════════════════════════════════════════ */
+    const DAYS = [
+      {
+        number: '01',
+        date: '- Dia 1 -',
+        title: 'Paseo en el centro',
+        desc: 'Un dia como cualquiera enb el centro con la mujer que mas amo.',
+        media: [
+          { type: 'img', src: '/content/Dia_1/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_1/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_1/img3.jpeg'  },
+        ]
+      },
+      {
+        number: '02',
+        date: '— Dia 2 -',
+        title: 'Dia de la graduación',
+        desc: 'Seguramente el dia en que cambio la forma de verte, y en el que empece a imaginar un posible futuro alado tuya.',
+        media: [
+          { type: 'img', src: '/content/Dia_2/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_2/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_2/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_2/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_2/img3.jpeg'  },
+        ]
+      },
+      {
+        number: '03',
+        date: '— Dia 3 —',
+        title: 'De chill en el morro',
+        desc: 'Uno de esos dias de verano en el que el tiempo se me pasaba mas rapido de lo que podia controlar y daria lo que fuese para que volviera.',
+        media: [
+          { type: 'img', src: '/content/Dia_3/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_3/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_3/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_3/img4.jpeg'  },
+          { type: 'video', src: '/content/Dia_3/video1.mp4'  },
+          { type: 'video', src: '/content/Dia_3/video2.mp4'  },
+          { type: 'video', src: '/content/Dia_3/video3.mp4'  },
+          { type: 'video', src: '/content/Dia_3/video4.mp4'  },
+        ]
+      },
+      {
+        number: '04',
+        date: '— Dia 4 —',
+        title: 'Mi cumpleaños',
+        desc: 'Uno de los cumpleaños mas importantes de mi vida, un dia inolvidable',
+        media: [
+          { type: 'img', src: '/content/Dia_4/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_4/img2.jpeg'  },        
+        ]
+      },
+      {
+        number: '05',
+        date: '— Dia 5 —',
+        title: 'Salida en micumpleños',
+        desc: 'Aqui ya si que salimos por mi cumpleaños, fuimos a comer y luegi a sentarnos al barrio y me hiciste muy feliz ese dia la verdad',
+        media: [
+          { type: 'img', src: '/content/Dia_5/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_5/img2.jpeg'  },
+          { type: 'img', src: '/content/Dia_5/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_5/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_5/img5.jpeg'  },
+          { type: 'video', src: '/content/Dia_5/video1.mp4'  },
+          { type: 'video', src: '/content/Dia_5/video2.mp4'  },
+          { type: 'video', src: '/content/Dia_5/video3.mp4'  },
+          { type: 'video', src: '/content/Dia_5/video4.mp4'  },
+          { type: 'video', src: '/content/Dia_5/video5.mp4'  },
+          { type: 'video', src: '/content/Dia_5/video6.mp4'  },
+          { type: 'video', src: '/content/Dia_5/video7.mp4'  },
+        ]
+      },
+      {
+        number: '06',
+        date: '— Dia 6 —',
+        title: 'Salida a correr',
+        desc: 'Aqui fue uno de los primeros dias en el que empezamos a salir a correr y aun me acuerdo que en ese dia ibas guapisima',
+        media: [
+          { type: 'img', src: '/content/Dia_6/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_6/img2.jpeg'  },
+          { type: 'img', src: '/content/Dia_6/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_6/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_6/img5.jpeg'  },
+        ]
+      },
+      {
+        number: '07',
+        date: '— Dia 7 —',
+        title: 'Coche en verano',
+        desc: 'Bueno que decir de este dia, aparte de que me aguante darte un pico como nunca jajajajaja.',
+        media: [
+          { type: 'img', src: '/content/Dia_7/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_7/img2.jpeg'  },
+          { type: 'img', src: '/content/Dia_7/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_7/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_7/img5.jpeg'  },
+          { type: 'img', src: '/content/Dia_7/img6.jpeg'  },
+          { type: 'video', src: '/content/Dia_7/video1.mp4'  },
+        ]
+      },
+      {
+        number: '08',
+        date: '— Dia 8 —',
+        title: 'Salida importante',
+        desc: 'Si te soy sincero no me acuerdo muy bien a donde ibamos ese dia pero si que me acuerdo de lo guapa que ibas.',
+        media: [
+          { type: 'img', src: '/content/Dia_8/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_8/img2.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img5.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img6.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img7.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img8.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img9.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img10.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img11.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img12.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img13.jpeg'  },
+          { type: 'img', src: '/content/Dia_8/img14.jpeg'  },
+        ]
+      },
+      {
+        number: '09',
+        date: '— Dia 9 —',
+        title: 'Haciendo el tonto en el barrio x1',
+        desc: 'Bueno como es costumbre en nosotros, un dia de tranquis haciendo el gilipollas jajajajaja.',
+        media: [
+          { type: 'img', src: '/content/Dia_9/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_9/img2.jpeg'  },
+          { type: 'img', src: '/content/Dia_9/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_9/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_9/img5.jpeg'  },
+          { type: 'img', src: '/content/Dia_9/img6.jpeg'  },
+          { type: 'img', src: '/content/Dia_9/img7.jpeg'  },
+          { type: 'img', src: '/content/Dia_9/img8.jpeg'  },
+          { type: 'video', src: '/content/Dia_9/video1.mp4'  },
+          { type: 'video', src: '/content/Dia_9/video2.mp4'  },
+          { type: 'video', src: '/content/Dia_9/video3.mp4'  },
+          { type: 'video', src: '/content/Dia_9/video4.mp4'  },
+        ]
+      },
+      {
+        number: '10',
+        date: '— Dia 10 —',
+        title: 'Chill en la playa',
+        desc: 'Un dia para recordar vaya, los mejores momentos antes de ser pareja en mi opinion.',
+        media: [
+          { type: 'img', src: '/content/Dia_10/img1.jpeg'  },
+          { type: 'img', src: '/content/Dia_10/img2.jpeg'  },
+          { type: 'img', src: '/content/Dia_10/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_10/img4.jpeg'  },
+          { type: 'video', src: '/content/Dia_10/video1.mp4'  },
+          { type: 'video', src: '/content/Dia_10/video2.mp4'  },
+          { type: 'video', src: '/content/Dia_10/video3.mp4'  },
+        ]
+      },
+      {
+        number: '11',
+        date: '— Dia 11 —',
+        title: 'Fronteo de bicep',
+        desc: 'Vale aqui soy yo enseñando el bicep, nose porque esta en elalbum pero esta asi que shhh y mira.',
+        media: [
+          { type: 'img', src: '/content/Dia_11/img1.jpeg'  },
+          { type: 'img', src: '/content/Dia_11/img2.jpeg'  },
+          { type: 'img', src: '/content/Dia_11/img3.jpeg'  },
+        ]
+      },
+      {
+        number: '12',
+        date: '— Dia 12 —',
+        title: 'El DIA',
+        desc: 'Y bueno hemos llegado al dia mas importante de mi vida y justo en mi numero favorito el 12. La verdad que no se explicar con palabras lo de este dia pero ojala poder vivrlo en bucle siempre que me venga a la cabeza',
+        media: [
+          { type: 'img', src: '/content/Dia_12/img1.jpeg'  },
+          { type: 'img', src: '/content/Dia_12/img2.jpeg'  },
+        ]
+      },
+      {
+        number: '13',
+        date: '— Dia 13 —',
+        title: 'Felices como pareja x1',
+        desc: 'Aqui estamos disfrutando ya de nuestros primeros dias como parejas y dandonos nuestros primeros piquitos timidos JAJAJJA.',
+        media: [
+          { type: 'img', src: '/content/Dia_13/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_13/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_13/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_13/img4.jpeg'  },
+        ]
+      },
+      {
+        number: '14',
+        date: '— Dia 14 —',
+        title: 'Parque con mi cuñaita',
+        desc: 'Bueno aqui aun recuerdo lo bien que estaba abrazado ati en ese tubo y bien que me lo pase ese dia como si fuese ayer mismo.',
+        media: [
+          { type: 'img', src: '/content/Dia_14/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_14/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_14/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_14/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_14/img5.jpeg'  },
+          { type: 'img', src: '/content/Dia_14/img6.jpeg'  },
+          { type: 'video', src: '/content/Dia_14/video1.mp4'  },
+          { type: 'video', src: '/content/Dia_14/video2.mp4'  },
+        ]
+      },
+      {
+        number: '15',
+        date: '— Dia 15 —',
+        title: 'Felices como pareja x2',
+        desc: 'Disfrutando mas de mi mujer.',
+        media: [
+          { type: 'img', src: '/content/Dia_15/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_15/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_15/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_15/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_15/img5.jpeg'  },
+          { type: 'img', src: '/content/Dia_15/img6.jpeg'  },
+        ]
+      },
+      {
+        number: '16',
+        date: '— Dia 16 —',
+        title: 'Cine con el tijua',
+        desc: 'No es comparable con los dias de cine en los que vamos solo los dos pero en este dia tambien nos lo pasamos muy bien con el tijuana.',
+        media: [
+          { type: 'img', src: '/content/Dia_16/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_16/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_16/img3.jpeg'  },
+        ]
+      },
+      {
+        number: '17',
+        date: '— Dia 17 —',
+        title: 'Haciendonos los guapos',
+        desc: 'Fotitos normales de los dos mas guapos de Ceuta sin duda alguna.',
+        media: [
+          { type: 'img', src: '/content/Dia_17/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_17/img2.jpeg' },
+        ]
+      },
+      {
+        number: '18',
+        date: '— Dia 18 —',
+        title: 'De chill con LUYEIN',
+        desc: 'Este dia estuve un monton de tiempo con luyein y fue otro de los mejores dias de mi vida.',
+        media: [
+          { type: 'img', src: '/content/Dia_18/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_18/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_18/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_18/img4.jpeg'  },
+        ]
+      },
+      {
+        number: '19',
+        date: '— Dia 19 —',
+        title: 'Playita en invierno',
+        desc: 'Aqui estabamos viendo una serie en la playa y sinceramente este dia fue uno de esos que hubiera deseado que no terminase nunca.',
+        media: [
+          { type: 'img', src: '/content/Dia_19/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_19/img2.jpeg' },
+        ]
+      },
+      {
+        number: '20',
+        date: '— Dia 20 —',
+        title: 'Robona con mi amor',
+        desc: 'Bueno aqui estaba aprobechando el tiempo de instituto muyyyy bien.',
+        media: [
+          { type: 'img', src: '/content/Dia_20/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_20/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_20/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_20/img4.jpeg'  },
+        ]
+      },
+      {
+        number: '21',
+        date: '— Dia 21 —',
+        title: 'Felices como pareja x3',
+        desc: 'Disfrutando mas de nuestro tiempo de calidad como pareja.',
+        media: [
+          { type: 'img', src: '/content/Dia_21/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_21/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_21/img3.jpeg'  },
+        ]
+      },
+      {
+        number: '22',
+        date: '— Dia 22 —',
+        title: 'Felices com pareja x4',
+        desc: 'Otro dia mas en el paraiso con mi mujer y la verdad que nunca me cansaria de dias como estos.',
+        media: [
+          { type: 'img', src: '/content/Dia_22/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_22/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_22/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_22/img4.jpeg'  },
+        ]
+      },
+      {
+        number: '23',
+        date: '— Dia 23 —',
+        title: 'Coche en invierno',
+        desc: 'Aqui dabamos un paseito con yusi en el coche como una familia feliz y no disfuncional jajajjaja.',
+        media: [
+          { type: 'img', src: '/content/Dia_23/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_23/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_23/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_23/img4.jpeg'  },
+          { type: 'video', src: '/content/Dia_23/video1.mp4'  },
+        ]
+      },
+      {
+        number: '24',
+        date: '— Dia 24 —',
+        title: 'Lluvia torrencial',
+        desc: 'Bueno como olvidar el dia en que mas nos mojamos creo yo pero en el que mejor nos lo pasamos al mismo tiempo.',
+        media: [
+          { type: 'img', src: '/content/Dia_24/img1.jpeg' },
+          { type: 'video', src: '/content/Dia_24/video1.mp4'  },
+          { type: 'video', src: '/content/Dia_24/video2.mp4'  },
+          { type: 'video', src: '/content/Dia_24/video3.mp4'  },
+          { type: 'video', src: '/content/Dia_24/video4.mp4'  },
+          { type: 'video', src: '/content/Dia_24/video5.mp4'  },
+        ]
+      },
+      {
+        number: '25',
+        date: '— Dia 25 —',
+        title: 'De compras con mi mujer',
+        desc: 'Un dia critico en mi vida, aqui empezo el deksa convaqueros impulsado como no por su mini yo JAJJAJA.',
+        media: [
+          { type: 'img', src: '/content/Dia_25/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_25/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_25/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_25/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_25/img5.jpeg'  },
+          { type: 'img', src: '/content/Dia_25/img6.jpeg'  },
+          { type: 'img', src: '/content/Dia_25/img7.jpeg'  },
+        ]
+      },
+      {
+        number: '26',
+        date: '— Dia 26 —',
+        title: 'Vuelta del cine (creo)',
+        desc: 'Si te soy sincero no me acuerdo muy bien tampoco que estabamos haciendo en este dia pero se que seguro que me lo pase super biuen como siempre y que salieron fotones.',
+        media: [
+          { type: 'img', src: '/content/Dia_26/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_26/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_26/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_26/img4.jpeg'  },
+        ]
+      },
+      {
+        number: '27',
+        date: '— Dia 27 —',
+        title: 'Felices como pareja x5',
+        desc: 'Aqui estabamos haciendo un ranking de princes treatment o no y la verdad que para mi nada que haga para ti es princes treatment porque eres mi prinesa y te mereces el mejor trato del mundo.',
+        media: [
+          { type: 'video', src: '/content/Dia_27/video1.mp4'  },
+          { type: 'video', src: '/content/Dia_27/video2.mp4'  },
+        ]
+      },
+      {
+        number: '28',
+        date: '— Dia 28 —',
+        title: 'Navidad juntos',
+        desc: 'Nuestra primera navidad juntos y aqui es donde me doy cuenta que parecemos marido y mujer desde jovenes y nos espera una vida super feliz juntos inchaalah.',
+        media: [
+          { type: 'img', src: '/content/Dia_28/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_28/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_28/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_28/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_28/img5.jpeg'  },
+          { type: 'img', src: '/content/Dia_28/img6.jpeg'  },
+          { type: 'img', src: '/content/Dia_28/img7.jpeg'  },
+          { type: 'img', src: '/content/Dia_28/img8.jpeg'  },
+          { type: 'img', src: '/content/Dia_28/img9.jpeg'  },
+        ]
+      },
+      {
+        number: '29',
+        date: '— Dia 29 —',
+        title: 'Lluvia torrencial x2',
+        desc: 'Otro dia en la que estaba cayendo la de dios y tuvimos una pequeña discusion de muchas que tendremos pero como siempre salimos queriendonos el doble de lo que nos queriamos y es lo que nos hace tan especiales.',
+        media: [
+          { type: 'img', src: '/content/Dia_29/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_29/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_29/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_29/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_29/img5.jpeg'  },
+        ]
+      },
+      {
+        number: '30',
+        date: '— Dia 30 —',
+        title: 'Viendo el amanecer',
+        desc: 'Y aqui rania cumpliendo los caprichos de su hombre jajajajaja, te amo mi vidaaa.',
+        media: [
+          { type: 'img', src: '/content/Dia_30/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_30/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_30/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_30/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_30/img5.jpeg'  },
+          { type: 'img', src: '/content/Dia_30/img6.jpeg'  },
+          { type: 'img', src: '/content/Dia_30/img7.jpeg'  },
+          { type: 'img', src: '/content/Dia_30/img8.jpeg'  },
+          { type: 'img', src: '/content/Dia_30/img9.jpeg'  },
+          { type: 'video', src: '/content/Dia_30/video1.mp4'  },
+          { type: 'video', src: '/content/Dia_30/video2.mp4'  },
+        ]
+      },
+      {
+        number: '31',
+        date: '— Dia 31 —',
+        title: 'Felices comn pareja x6',
+        desc: 'Otro dia mas de chill disfrutando el uno del otro como de costumbre ya.',
+        media: [
+          { type: 'img', src: '/content/Dia_31/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_31/img2.jpeg' },
+          { type: 'img', src: '/content/Dia_31/img3.jpeg'  },
+          { type: 'img', src: '/content/Dia_31/img4.jpeg'  },
+          { type: 'img', src: '/content/Dia_31/img5.jpeg'  },
+          { type: 'img', src: '/content/Dia_31/img6.jpeg'  },
+        ]
+      },
+      {
+        number: '32',
+        date: '— Dia 32 —',
+        title: 'Dia de tik toks',
+        desc: 'Bueno este fue uno de esos dias en el que estuvimos haciendo tik toks a punta pala para que luego me digas que no hacemos tik toks.',
+        media: [
+          { type: 'img', src: '/content/Dia_32/img1.jpeg' },
+          { type: 'img', src: '/content/Dia_32/img2.jpeg' },
+          { type: 'video', src: '/content/Dia_32/video1.mp4'  },
+          { type: 'video', src: '/content/Dia_32/video2.mp4'  },
+          { type: 'video', src: '/content/Dia_32/video3.mp4'  },
+          { type: 'video', src: '/content/Dia_32/video4.mp4'  },
+          { type: 'video', src: '/content/Dia_32/video5.mp4'  },
+          { type: 'video', src: '/content/Dia_32/video6.mp4'  },
+          { type: 'video', src: '/content/Dia_32/video7.mp4'  },
+        ]
+      },
+      {
+        number: '33',
+        date: '— Dia 33 —',
+        title: 'Sacando sangre',
+        desc: 'Y aqui mi enfermera sexy pero principiante queria sacarme sangre en plena calle a -28º grados y termino en una casi hemorragia pero aun estamos vivos jajajjajaja.',
+        media: [
+          { type: 'video', src: '/content/Dia_33/video1.mp4'  },
+          { type: 'video', src: '/content/Dia_33/video2.mp4'  },
+          { type: 'video', src: '/content/Dia_33/video3.mp4'  },
+          { type: 'video', src: '/content/Dia_33/video4.mp4'  },
+        ]
+      },
+      {
+        number: 'Bonus',
+        date: '— Fotos random —',
+        title: 'Algunas de nuestras fotos mas random',
+        desc: 'Fotitos random.',
+        media: [
+          { type: 'img', src: '/content/Fotos_random/img1.jpeg' },
+          { type: 'img', src: '/content/Fotos_random/img2.jpeg' },
+          { type: 'img', src: '/content/Fotos_random/img3.jpeg'  },
+          { type: 'img', src: '/content/Fotos_random/img4.jpeg'  },
+          { type: 'img', src: '/content/Fotos_random/img5.jpeg'  },
+          { type: 'img', src: '/content/Fotos_random/img6.jpeg'  },
+          { type: 'img', src: '/content/Fotos_random/img7.jpeg'  },
+          { type: 'img', src: '/content/Fotos_random/img8.jpeg'  },
+        ]
+      },
+      {
+        number: 'Bonus',
+        date: '- Videos random —',
+        title: 'Algunos videos random',
+        desc: 'Videitos random.',
+        media: [
+          { type: 'video', src: '/content/Videos_random/video1.mp4'  },
+          { type: 'video', src: '/content/Videos_random/video2.mp4'  },
+          { type: 'video', src: '/content/Videos_random/video3.mp4'  },
+          { type: 'video', src: '/content/Videos_random/video4.mp4'  },
+          { type: 'video', src: '/content/Videos_random/video5.mp4'  },
+          { type: 'video', src: '/content/Videos_random/video6.mp4'  },
+          { type: 'video', src: '/content/Videos_random/video7.mp4'  },
+          { type: 'video', src: '/content/Videos_random/video8.mp4'  },
+          { type: 'video', src: '/content/Videos_random/video9.mp4'  },
+        ]
+      }
+    ];
+    /* ═══════════════════════════════════════════════════════════ */
+
+    // Estado lightbox
+    let lbItems = [];
+    let lbIndex = 0;
+
+    function renderDays() {
+      const container = document.getElementById('days-container');
+      container.innerHTML = '';
+
+      DAYS.forEach((day, di) => {
+        const block = document.createElement('div');
+        block.className = 'day-block';
+        block.style.animationDelay = `${di * 0.1}s`;
+
+        const hasMedia = day.media && day.media.length > 0;
+        const gridClass = hasMedia && day.media.length >= 3 ? 'photo-grid has-featured' : 'photo-grid';
+
+        // Construir items de media o placeholders
+        let mediaHTML = '';
+        if (hasMedia) {
+          day.media.forEach((item, idx) => {
+            const globalIdx = `${di}-${idx}`;
+            if (item.type === 'video') {
+              mediaHTML += `
+                <div class="media-item is-video" onclick="openLightboxVideo('${item.src}', ${di})">
+                  <video src="${item.src}" muted preload="metadata"></video>
+                  <div class="video-overlay">
+                    <div class="play-btn">▶</div>
+                  </div>
+                </div>`;
+            } else {
+              mediaHTML += `
+                <div class="media-item" onclick="openLightboxImg(${di}, ${idx})">
+                  <img src="${item.src}" alt="Foto del día ${day.number}" loading="lazy" />
+                </div>`;
+            }
+          });
+        } else {
+          // Placeholders cuando no hay fotos aún
+          for (let p = 0; p < 4; p++) {
+            mediaHTML += `
+              <div class="media-item placeholder">
+                <span class="placeholder-icon">${p === 0 ? '📷' : p === 1 ? '🎞️' : p === 2 ? '🖼️' : '✨'}</span>
+                <span class="placeholder-text">Añade tu foto aquí</span>
+              </div>`;
+          }
+        }
+
+        block.innerHTML = `
+          <div class="day-header">
+            <div class="day-number">${day.number}<span>DÍA</span></div>
+            <div class="day-info">
+              <div class="day-date">${day.date}</div>
+              <h2>${day.title}</h2>
+              <p>${day.desc}</p>
+            </div>
+          </div>
+          <div class="${gridClass}">${mediaHTML}</div>
+        `;
+        container.appendChild(block);
+      });
+    }
+
+    function openLightboxImg(dayIdx, mediaIdx) {
+      const day = DAYS[dayIdx];
+      lbItems = day.media.filter(m => m.type === 'img');
+      lbIndex = day.media.slice(0, mediaIdx).filter(m => m.type === 'img').length;
+      showLightboxItem();
+    }
+
+    function openLightboxVideo(src) {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const vid = document.getElementById('lightbox-video');
+      img.style.display = 'none';
+      vid.style.display = 'block';
+      vid.src = src;
+      vid.play();
+      lb.classList.add('is-open');
+      lbItems = [];
+    }
+
+    function showLightboxItem() {
+      const item = lbItems[lbIndex];
+      if (!item) return;
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const vid = document.getElementById('lightbox-video');
+      img.style.display = 'block';
+      vid.style.display = 'none';
+      vid.pause();
+      img.src = item.src;
+      lb.classList.add('is-open');
+    }
+
+    function lightboxNav(dir) {
+      if (!lbItems.length) return;
+      lbIndex = (lbIndex + dir + lbItems.length) % lbItems.length;
+      showLightboxItem();
+    }
+
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      const vid = document.getElementById('lightbox-video');
+      lb.classList.remove('is-open');
+      vid.pause();
+      vid.src = '';
+    }
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') lightboxNav(1);
+      if (e.key === 'ArrowLeft') lightboxNav(-1);
+    });
+
+    document.getElementById('lightbox').addEventListener('click', e => {
+      if (e.target === e.currentTarget) closeLightbox();
+    });
+
+    renderDays();
+  </script>
+
+</body>
+</html>
