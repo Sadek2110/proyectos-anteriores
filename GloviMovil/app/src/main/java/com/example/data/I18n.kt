@@ -1,0 +1,110 @@
+package com.example.data
+
+import com.example.model.Language
+
+object I18n {
+    private val strings = mapOf(
+        "home" to mapOf(Language.ES to "Inicio", Language.EN to "Home", Language.FR to "Accueil", Language.AR to "الرئيسية"),
+        "landingEyebrow" to mapOf(Language.ES to "Descubre Ceuta a tu ritmo", Language.EN to "Discover Ceuta at your pace", Language.FR to "Découvrez Ceuta à votre rythme", Language.AR to "اكتشف سبتة على إيقاعك"),
+        "landingTitle" to mapOf(Language.ES to "Entre murallas y mar", Language.EN to "Between walls and sea", Language.FR to "Entre remparts et mer", Language.AR to "بين الأسوار والبحر"),
+        "landingText" to mapOf(
+            Language.ES to "Una guía para pasear por Ceuta, descubrir su historia y encontrar lo que necesitas en cada momento.",
+            Language.EN to "A guide to stroll through Ceuta, discover its history and find what you need along the way.",
+            Language.FR to "Un guide pour parcourir Ceuta, découvrir son histoire et trouver ce dont vous avez besoin.",
+            Language.AR to "دليل للتجول في سبتة واكتشاف تاريخها والعثور على ما تحتاجه أثناء رحلتك."
+        ),
+        "discover" to mapOf(Language.ES to "Explorar la ruta", Language.EN to "Explore the route", Language.FR to "Explorer le parcours", Language.AR to "استكشف المسار"),
+        "askGuide" to mapOf(Language.ES to "Preguntar a la guía", Language.EN to "Ask the guide", Language.FR to "Interroger le guide", Language.AR to "اسأل الدليل"),
+        "landingSection" to mapOf(Language.ES to "Tu viaje empieza aquí", Language.EN to "Your journey starts here", Language.FR to "Votre voyage commence ici", Language.AR to "تبدأ رحلتك هنا"),
+        "landingSectionText" to mapOf(
+            Language.ES to "Tres formas sencillas de vivir la ciudad: recorre sus calles, resuelve dudas y organiza una experiencia.",
+            Language.EN to "Three simple ways to enjoy the city: explore its streets, ask questions and plan an experience.",
+            Language.FR to "Trois façons de profiter de la ville : parcourez ses rues, posez vos questions et préparez une expérience.",
+            Language.AR to "ثلاث طرق بسيطة للاستمتاع بالمدينة: تجول في شوارعها واطرح أسئلتك وخطط لتجربة."
+        ),
+        "routeMeta" to mapOf(Language.ES to "3 paradas · 45 min", Language.EN to "3 stops · 45 min", Language.FR to "3 étapes · 45 min", Language.AR to "3 محطات · 45 دقيقة"),
+        "routeCardText" to mapOf(Language.ES to "Un paseo por el corazón histórico de Ceuta.", Language.EN to "A walk through Ceuta’s historic heart.", Language.FR to "Une promenade au cœur historique de Ceuta.", Language.AR to "جولة في قلب سبتة التاريخي."),
+        "assistantCardText" to mapOf(Language.ES to "Ideas, contexto y ayuda para seguir descubriendo.", Language.EN to "Ideas, context and help as you explore.", Language.FR to "Des idées, du contexte et de l’aide pour explorer.", Language.AR to "أفكار ومعلومات ومساعدة خلال الاستكشاف."),
+        "bookingFeatureTitle" to mapOf(Language.ES to "Organiza tu visita", Language.EN to "Plan your visit", Language.FR to "Organisez votre visite", Language.AR to "خطط لزيارتك"),
+        "bookingCardText" to mapOf(Language.ES to "Consulta servicios y solicita una plaza disponible.", Language.EN to "Browse services and request an available place.", Language.FR to "Consultez les services et demandez une place disponible.", Language.AR to "تصفح الخدمات واطلب مكاناً متاحاً."),
+        "visualNote" to mapOf(Language.ES to "Imágenes ilustrativas de ambiente mediterráneo.", Language.EN to "Illustrative images of Mediterranean scenery.", Language.FR to "Images d’illustration d’ambiance méditerranéenne.", Language.AR to "صور توضيحية لأجواء البحر المتوسط."),
+        "personalize" to mapOf(Language.ES to "Haz tuya la experiencia", Language.EN to "Make it your own", Language.FR to "Personnalisez votre expérience", Language.AR to "خصص تجربتك"),
+        "language" to mapOf(Language.ES to "Idioma", Language.EN to "Language", Language.FR to "Langue", Language.AR to "اللغة"),
+        "assistant" to mapOf(Language.ES to "Asistente", Language.EN to "Assistant", Language.FR to "Assistant", Language.AR to "المساعد"),
+        "routes" to mapOf(Language.ES to "Rutas", Language.EN to "Routes", Language.FR to "Parcours", Language.AR to "المسارات"),
+        "bookings" to mapOf(Language.ES to "Reservas", Language.EN to "Bookings", Language.FR to "Réservations", Language.AR to "الحجوزات"),
+        "emergency" to mapOf(Language.ES to "Emergencias", Language.EN to "Emergency", Language.FR to "Urgences", Language.AR to "الطوارئ"),
+        "privacy" to mapOf(Language.ES to "Privacidad", Language.EN to "Privacy", Language.FR to "Confidentialité", Language.AR to "الخصوصية"),
+        "nav_assistant" to mapOf(Language.ES to "Guía", Language.EN to "Guide", Language.FR to "Guide", Language.AR to "المساعد"),
+        "nav_bookings" to mapOf(Language.ES to "Reservas", Language.EN to "Bookings", Language.FR to "Réserver", Language.AR to "الحجوزات"),
+        "nav_emergency" to mapOf(Language.ES to "SOS", Language.EN to "SOS", Language.FR to "SOS", Language.AR to "طوارئ"),
+        "nav_privacy" to mapOf(Language.ES to "Datos", Language.EN to "Privacy", Language.FR to "Données", Language.AR to "الخصوصية"),
+        "admin" to mapOf(Language.ES to "Operación", Language.EN to "Operations", Language.FR to "Opérations", Language.AR to "الإدارة"),
+        "intro" to mapOf(Language.ES to "Guía digital de Ceuta", Language.EN to "Digital guide to Ceuta", Language.FR to "Guide numérique de Ceuta", Language.AR to "دليل سبتة الرقمي"),
+        "interests" to mapOf(Language.ES to "Tus intereses", Language.EN to "Your interests", Language.FR to "Vos intérêts", Language.AR to "اهتماماتك"),
+        "history" to mapOf(Language.ES to "Historia", Language.EN to "History", Language.FR to "Histoire", Language.AR to "التاريخ"),
+        "architecture" to mapOf(Language.ES to "Arquitectura", Language.EN to "Architecture", Language.FR to "Architecture", Language.AR to "العمارة"),
+        "food" to mapOf(Language.ES to "Gastronomía", Language.EN to "Food", Language.FR to "Gastronomie", Language.AR to "الطعام"),
+        "location" to mapOf(Language.ES to "Permitir ubicación durante las rutas", Language.EN to "Allow location during routes", Language.FR to "Autoriser la position pendant les parcours", Language.AR to "السماح بالموقع أثناء المسارات"),
+        "ai" to mapOf(Language.ES to "Permitir enviar mis consultas a Gemini", Language.EN to "Allow sending my questions to Gemini", Language.FR to "Autoriser l’envoi de mes questions à Gemini", Language.AR to "السماح بإرسال أسئلتي إلى Gemini"),
+        "question" to mapOf(Language.ES to "Tu consulta", Language.EN to "Your question", Language.FR to "Votre question", Language.AR to "سؤالك"),
+        "send" to mapOf(Language.ES to "Enviar", Language.EN to "Send", Language.FR to "Envoyer", Language.AR to "إرسال"),
+        "local" to mapOf(Language.ES to "Guía local · sin IA generativa", Language.EN to "Local guide · no generative AI", Language.FR to "Guide local · sans IA générative", Language.AR to "دليل محلي · دون ذكاء اصطناعي توليدي"),
+        "gemini" to mapOf(Language.ES to "Respuesta de Gemini", Language.EN to "Gemini response", Language.FR to "Réponse Gemini", Language.AR to "رد Gemini"),
+        "local_fallback" to mapOf(Language.ES to "IA no disponible · guía local", Language.EN to "AI unavailable · local guide", Language.FR to "IA indisponible · guide local", Language.AR to "الذكاء الاصطناعي غير متاح · دليل محلي"),
+        "emergencyMode" to mapOf(Language.ES to "Información de emergencia", Language.EN to "Emergency information", Language.FR to "Informations d’urgence", Language.AR to "معلومات الطوارئ"),
+        "chatHint" to mapOf(Language.ES to "Pregunta por visitas, gastronomía, reservas o servicios. No escribas datos personales.", Language.EN to "Ask about sights, food, bookings or services. Do not enter personal data.", Language.FR to "Posez des questions sur les visites, la gastronomie, les réservations ou les services. Ne saisissez pas de données personnelles.", Language.AR to "اسأل عن المعالم والطعام والحجوزات والخدمات. لا تدخل بيانات شخصية."),
+        "source" to mapOf(Language.ES to "Fuente", Language.EN to "Source", Language.FR to "Source", Language.AR to "المصدر"),
+        "start" to mapOf(Language.ES to "Iniciar ruta", Language.EN to "Start route", Language.FR to "Démarrer le parcours", Language.AR to "بدء المسار"),
+        "gps" to mapOf(Language.ES to "Activar GPS", Language.EN to "Enable GPS", Language.FR to "Activer le GPS", Language.AR to "تفعيل الموقع"),
+        "stopGps" to mapOf(Language.ES to "Detener GPS", Language.EN to "Stop GPS", Language.FR to "Arrêter le GPS", Language.AR to "إيقاف الموقع"),
+        "simulateArrival" to mapOf(Language.ES to "Simular llegada", Language.EN to "Simulate arrival", Language.FR to "Simuler l'arrivée", Language.AR to "محاكاة الوصول"),
+        "abandon" to mapOf(Language.ES to "Abandonar ruta", Language.EN to "Leave route", Language.FR to "Quitter le parcours", Language.AR to "إنهاء المسار"),
+        "active" to mapOf(Language.ES to "En curso", Language.EN to "In progress", Language.FR to "En cours", Language.AR to "جارٍ"),
+        "completed" to mapOf(Language.ES to "Completada", Language.EN to "Completed", Language.FR to "Terminé", Language.AR to "مكتمل"),
+        "abandoned" to mapOf(Language.ES to "Abandonada", Language.EN to "Abandoned", Language.FR to "Abandonné", Language.AR to "متروك"),
+        "listen" to mapOf(Language.ES to "Escuchar", Language.EN to "Listen", Language.FR to "Écouter", Language.AR to "استمع"),
+        "stopVoice" to mapOf(Language.ES to "Detener audio", Language.EN to "Stop audio", Language.FR to "Arrêter l’audio", Language.AR to "إيقاف الصوت"),
+        "navigate" to mapOf(Language.ES to "Cómo llegar", Language.EN to "Navigate", Language.FR to "Itinéraire", Language.AR to "الاتجاهات"),
+        "routeHint" to mapOf(
+            Language.ES to "La ruta se activa a menos de 100 m de cada parada. Mantén la app abierta. Las coordenadas no se guardan.",
+            Language.EN to "The route triggers within 100 m of each stop. Keep the app open. Coordinates are not stored.",
+            Language.FR to "Le parcours se déclenche à moins de 100 m de chaque étape. Gardez l’application ouverte. Les coordonnées ne sont pas enregistrées.",
+            Language.AR to "يُفعّل المسار ضمن 100 متر من كل محطة. أبق التطبيق مفتوحاً. لا تُحفظ الإحداثيات."
+        ),
+        "call" to mapOf(Language.ES to "Llamar al 112", Language.EN to "Call 112", Language.FR to "Appeler le 112", Language.AR to "اتصل بـ 112"),
+        "consular" to mapOf(Language.ES to "Ayuda consular por nacionalidad", Language.EN to "Consular help by nationality", Language.FR to "Aide consulaire par nationalité", Language.AR to "المساعدة القنصلية حسب الجنسية"),
+        "service" to mapOf(Language.ES to "Servicio", Language.EN to "Service", Language.FR to "Service", Language.AR to "الخدمة"),
+        "slot" to mapOf(Language.ES to "Turno", Language.EN to "Time slot", Language.FR to "Créneau", Language.AR to "الموعد"),
+        "people" to mapOf(Language.ES to "Personas", Language.EN to "People", Language.FR to "Personnes", Language.AR to "الأشخاص"),
+        "name" to mapOf(Language.ES to "Nombre", Language.EN to "Name", Language.FR to "Nom", Language.AR to "الاسم"),
+        "email" to mapOf(Language.ES to "Correo electrónico", Language.EN to "Email", Language.FR to "Adresse e-mail", Language.AR to "البريد الإلكتروني"),
+        "request" to mapOf(Language.ES to "Solicitar reserva", Language.EN to "Request booking", Language.FR to "Demander une réservation", Language.AR to "طلب حجز"),
+        "cancel" to mapOf(Language.ES to "Cancelar reserva", Language.EN to "Cancel booking", Language.FR to "Annuler la réservation", Language.AR to "إلغاء الحجز"),
+        "requested" to mapOf(Language.ES to "Solicitada", Language.EN to "Requested", Language.FR to "Demandée", Language.AR to "مطلوب"),
+        "confirmed" to mapOf(Language.ES to "Confirmada", Language.EN to "Confirmed", Language.FR to "Confirmée", Language.AR to "مؤكد"),
+        "cancelled" to mapOf(Language.ES to "Cancelada", Language.EN to "Cancelled", Language.FR to "Annulée", Language.AR to "ملغى"),
+        "rejected" to mapOf(Language.ES to "Rechazada", Language.EN to "Rejected", Language.FR to "Refusée", Language.AR to "مرفوض"),
+        "demo" to mapOf(Language.ES to "DEMO · sin reserva en un negocio real", Language.EN to "DEMO · no real business booking", Language.FR to "DEMO · aucune réservation auprès d’un commerce réel", Language.AR to "DEMO · لا يوجد حجز فعلي"),
+        "internal" to mapOf(Language.ES to "Solicitud pendiente de confirmación del operador", Language.EN to "Request pending operator confirmation", Language.FR to "Demande en attente de confirmation de l’opérateur", Language.AR to "طلب بانتظار تأكيد المشغل"),
+        "emptyBookings" to mapOf(Language.ES to "Todavía no tienes reservas.", Language.EN to "You have no bookings yet.", Language.FR to "Vous n’avez pas encore de réservation.", Language.AR to "ليس لديك حجوزات بعد."),
+        "emptySlots" to mapOf(Language.ES to "No hay turnos disponibles.", Language.EN to "No available slots.", Language.FR to "Aucun créneau disponible.", Language.AR to "لا توجد مواعيد متاحة."),
+        "available" to mapOf(Language.ES to "plazas disponibles", Language.EN to "places available", Language.FR to "places disponibles", Language.AR to "أماكن متاحة"),
+        "export" to mapOf(Language.ES to "Exportar mis datos", Language.EN to "Export my data", Language.FR to "Exporter mes données", Language.AR to "تصدير بياناتي"),
+        "delete" to mapOf(Language.ES to "Borrar mis datos", Language.EN to "Delete my data", Language.FR to "Supprimer mes données", Language.AR to "حذف بياناتي"),
+        "confirmDelete" to mapOf(Language.ES to "Confirmo que quiero borrar mis datos", Language.EN to "I confirm I want to delete my data", Language.FR to "Je confirme vouloir supprimer mes données", Language.AR to "أؤكد أنني أريد حذف بياناتي"),
+        "deleted" to mapOf(Language.ES to "Datos borrados. Se ha creado una sesión nueva.", Language.EN to "Data deleted. A new session has been created.", Language.FR to "Données supprimées. Une nouvelle session a été créée.", Language.AR to "حُذفت البيانات. أُنشئت جلسة جديدة."),
+        "privacyText" to mapOf(
+            Language.ES to "Guardamos tus preferencias, las últimas 40 entradas del chat, progreso y reservas en este dispositivo. No guardamos tu GPS. Si autorizas Gemini, se envían tus consultas y contexto cultural a Google. No se envían tus reservas. Borrar elimina todos los datos y libera tus plazas.",
+            Language.EN to "We store preferences, the last 40 chat entries, progress and bookings on this device. We do not store GPS. If you allow Gemini, your questions and cultural context are sent to Google. Bookings are not sent. Deletion removes all data and frees booked places.",
+            Language.FR to "Nous conservons les préférences, les 40 dernières entrées du chat, la progression et les réservations sur cet appareil, sans GPS. Si vous autorisez Gemini, vos questions et le contexte culturel sont envoyés à Google. La suppression efface les données.",
+            Language.AR to "نحفظ التفضيلات وآخر 40 رسالة والتقدم والحجوزات على هذا الجهاز دون الموقع. إذا سمحت بـ Gemini تُرسل أسئلتك والسياق الثقافي إلى Google دون الحجوزات. الحذف يزيل البيانات."
+        ),
+        "esim" to mapOf(Language.ES to "eSIM: no disponible en el piloto", Language.EN to "eSIM: unavailable in the pilot", Language.FR to "eSIM : indisponible dans le pilote", Language.AR to "الشريحة الإلكترونية: غير متاحة في النسخة التجريبية"),
+        "noVisits" to mapOf(Language.ES to "Todavía no has llegado a una parada.", Language.EN to "You have not reached a stop yet.", Language.FR to "Vous n’avez pas encore atteint d’étape.", Language.AR to "لم تصل إلى محطة بعد.")
+    )
+
+    fun t(key: String, lang: Language): String {
+        return strings[key]?.get(lang) ?: key
+    }
+}

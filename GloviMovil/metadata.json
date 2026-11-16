@@ -1,0 +1,6 @@
+{
+  "name": "GLOVI",
+  "description": "Piloto turístico y cultural inteligente de Ceuta con rutas, audioguía, reservas y asistente",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

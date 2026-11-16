@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Outer compass star / fortress accents -->
+    <path
+        android:fillColor="#E5A93C"
+        android:pathData="M54,22 L57,32 L67,32 L59,38 L62,48 L54,42 L46,48 L49,38 L41,32 L51,32 Z" />
+    <!-- Fortified Royal Walls (Murallas Reales) emblem -->
+    <path
+        android:fillColor="#F7F2E6"
+        android:pathData="M30,50 L30,42 L36,42 L36,46 L42,46 L42,42 L48,42 L48,46 L54,46 L54,42 L60,42 L60,46 L66,46 L66,42 L72,42 L72,46 L78,46 L78,42 L78,50 Z" />
+    <path
+        android:fillColor="#F7F2E6"
+        android:pathData="M30,52 L78,52 L78,74 L30,74 Z" />
+    <!-- Gateway arch -->
+    <path
+        android:fillColor="#1B3B5F"
+        android:pathData="M49,74 L49,63 C49,60.2 51.2,58 54,58 C56.8,58 59,60.2 59,63 L59,74 Z" />
+    <!-- Sea waves under walls -->
+    <path
+        android:strokeColor="#56A5D8"
+        android:strokeWidth="3"
+        android:strokeLineCap="round"
+        android:pathData="M30,80 C36,78 42,82 48,80 C54,78 60,82 66,80 C72,78 78,82 82,80" />
+    <path
+        android:strokeColor="#56A5D8"
+        android:strokeWidth="2.5"
+        android:strokeLineCap="round"
+        android:pathData="M34,86 C40,84 46,88 52,86 C58,84 64,88 70,86 C74,84 76,86 78,85" />
+</vector>

@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">GLOVI</string>
+    <string name="app_subtitle">Ceuta</string>
+    <string name="intro_title">Entre murallas y mar</string>
+    <string name="intro_kicker">Descubre Ceuta a tu ritmo</string>
+    <string name="intro_description">Una guía para pasear por Ceuta, descubrir su historia y encontrar lo que necesitas en cada momento.</string>
+</resources>
